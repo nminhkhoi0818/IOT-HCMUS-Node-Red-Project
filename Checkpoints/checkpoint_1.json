@@ -1,0 +1,510 @@
+[
+    {
+        "id": "01a8f56dc3f304a5",
+        "type": "tab",
+        "label": "Flow 1",
+        "disabled": false,
+        "info": "",
+        "env": []
+    },
+    {
+        "id": "bf6b235abb37a1ca",
+        "type": "ui_form",
+        "z": "01a8f56dc3f304a5",
+        "name": "Sign Up Node",
+        "label": "",
+        "group": "18136a764050f740",
+        "order": 0,
+        "width": 0,
+        "height": 0,
+        "options": [
+            {
+                "label": "Username",
+                "value": "username",
+                "type": "text",
+                "required": true,
+                "rows": null
+            },
+            {
+                "label": "Password",
+                "value": "password",
+                "type": "password",
+                "required": true,
+                "rows": null
+            }
+        ],
+        "formValue": {
+            "username": "",
+            "password": ""
+        },
+        "payload": "",
+        "submit": "submit",
+        "cancel": "cancel",
+        "topic": "",
+        "topicType": "msg",
+        "splitLayout": "",
+        "className": "",
+        "x": 100,
+        "y": 140,
+        "wires": [
+            [
+                "dff83cdc755738f5",
+                "668688b6908fcc0c"
+            ]
+        ]
+    },
+    {
+        "id": "dff83cdc755738f5",
+        "type": "function",
+        "z": "01a8f56dc3f304a5",
+        "name": "Add account",
+        "func": "var accounts = flow.get(\"accounts\") || [];\n\naccounts.push({ username : msg.payload.username, password : msg.payload.password, accessTime : new Date()})\n\nflow.set(\"accounts\", accounts)\n\nmsg.payload = accounts;\nreturn msg;",
+        "outputs": 1,
+        "noerr": 0,
+        "initialize": "",
+        "finalize": "",
+        "libs": [],
+        "x": 290,
+        "y": 100,
+        "wires": [
+            [
+                "ae4c5005d2f7e528"
+            ]
+        ]
+    },
+    {
+        "id": "ae4c5005d2f7e528",
+        "type": "debug",
+        "z": "01a8f56dc3f304a5",
+        "name": "debug 2",
+        "active": true,
+        "tosidebar": true,
+        "console": false,
+        "tostatus": false,
+        "complete": "payload",
+        "targetType": "msg",
+        "statusVal": "",
+        "statusType": "auto",
+        "x": 520,
+        "y": 100,
+        "wires": []
+    },
+    {
+        "id": "668688b6908fcc0c",
+        "type": "function",
+        "z": "01a8f56dc3f304a5",
+        "name": "Check validation account",
+        "func": "var accounts = flow.get(\"accounts\") || [ { username : \"admin\", password : \"admin\"}];\n\nvar username = msg.payload.username;\nvar password = msg.payload.password;\n\nvar check = false;\n\nfor(var i = 0; i < accounts.length; i++) {\n    if(username == accounts[i].username && password == accounts[i].password) {\n        check = true;\n        break;\n    }\n}\n\nif(check) {\n    msg.payload = 1;\n}\nelse {\n    msg.payload = 0;\n}\n\nreturn msg;",
+        "outputs": 1,
+        "noerr": 0,
+        "initialize": "",
+        "finalize": "",
+        "libs": [],
+        "x": 330,
+        "y": 180,
+        "wires": [
+            [
+                "e0c91a6f0351b057",
+                "dacf714858d261a7"
+            ]
+        ]
+    },
+    {
+        "id": "e0c91a6f0351b057",
+        "type": "switch",
+        "z": "01a8f56dc3f304a5",
+        "name": "",
+        "property": "payload",
+        "propertyType": "msg",
+        "rules": [
+            {
+                "t": "eq",
+                "v": "0",
+                "vt": "str"
+            },
+            {
+                "t": "eq",
+                "v": "1",
+                "vt": "str"
+            }
+        ],
+        "checkall": "true",
+        "repair": false,
+        "outputs": 2,
+        "x": 550,
+        "y": 180,
+        "wires": [
+            [],
+            [
+                "1808947ac9da3162"
+            ]
+        ]
+    },
+    {
+        "id": "7e91ad62b7ca3b0a",
+        "type": "ui_ui_control",
+        "z": "01a8f56dc3f304a5",
+        "name": "Go to Data Group",
+        "events": "all",
+        "x": 910,
+        "y": 280,
+        "wires": [
+            []
+        ]
+    },
+    {
+        "id": "1808947ac9da3162",
+        "type": "function",
+        "z": "01a8f56dc3f304a5",
+        "name": "Handle success login",
+        "func": "msg.payload = {\n    group : {\n        \"show\": [\"Dashboard_Data\"],\n        \"hide\": [\"Dashboard_Sign_In\"]\n    }\n}\nreturn msg;",
+        "outputs": 1,
+        "noerr": 0,
+        "initialize": "",
+        "finalize": "",
+        "libs": [],
+        "x": 740,
+        "y": 180,
+        "wires": [
+            [
+                "7e91ad62b7ca3b0a",
+                "21dac5ada8513382"
+            ]
+        ]
+    },
+    {
+        "id": "dacf714858d261a7",
+        "type": "debug",
+        "z": "01a8f56dc3f304a5",
+        "name": "debug 3",
+        "active": true,
+        "tosidebar": true,
+        "console": false,
+        "tostatus": false,
+        "complete": "payload",
+        "targetType": "msg",
+        "statusVal": "",
+        "statusType": "auto",
+        "x": 560,
+        "y": 240,
+        "wires": []
+    },
+    {
+        "id": "21dac5ada8513382",
+        "type": "debug",
+        "z": "01a8f56dc3f304a5",
+        "name": "debug 4",
+        "active": true,
+        "tosidebar": true,
+        "console": false,
+        "tostatus": false,
+        "complete": "payload",
+        "targetType": "msg",
+        "statusVal": "",
+        "statusType": "auto",
+        "x": 940,
+        "y": 120,
+        "wires": []
+    },
+    {
+        "id": "cc96b4536e8e87a9",
+        "type": "ui_gauge",
+        "z": "01a8f56dc3f304a5",
+        "name": "",
+        "group": "f4a7bf2f8fb4aa18",
+        "order": 1,
+        "width": 0,
+        "height": 0,
+        "gtype": "gage",
+        "title": "Gauge",
+        "label": "units",
+        "format": "{{value}}",
+        "min": 0,
+        "max": 10,
+        "colors": [
+            "#00b500",
+            "#e6e600",
+            "#ca3838"
+        ],
+        "seg1": "",
+        "seg2": "",
+        "diff": false,
+        "className": "",
+        "x": 150,
+        "y": 280,
+        "wires": []
+    },
+    {
+        "id": "7c271e645b94d4ec",
+        "type": "ui_ui_control",
+        "z": "01a8f56dc3f304a5",
+        "name": "Reset Login Group",
+        "events": "all",
+        "x": 530,
+        "y": 380,
+        "wires": [
+            []
+        ]
+    },
+    {
+        "id": "ddaa344562802356",
+        "type": "function",
+        "z": "01a8f56dc3f304a5",
+        "name": "Reset",
+        "func": "msg.payload = {\n    group: {\n        \"hide\": [\"Dashboard_Data\"],\n        \"show\": [\"Dashboard_Sign_In\"]\n    }\n}\nreturn msg;",
+        "outputs": 1,
+        "noerr": 0,
+        "initialize": "",
+        "finalize": "",
+        "libs": [],
+        "x": 330,
+        "y": 380,
+        "wires": [
+            [
+                "7c271e645b94d4ec"
+            ]
+        ]
+    },
+    {
+        "id": "3db0ff5c53daa806",
+        "type": "ui_button",
+        "z": "01a8f56dc3f304a5",
+        "name": "Back",
+        "group": "f4a7bf2f8fb4aa18",
+        "order": 2,
+        "width": 0,
+        "height": 0,
+        "passthru": false,
+        "label": "Back",
+        "tooltip": "",
+        "color": "",
+        "bgcolor": "",
+        "className": "",
+        "icon": "",
+        "payload": "",
+        "payloadType": "str",
+        "topic": "",
+        "topicType": "msg",
+        "x": 150,
+        "y": 380,
+        "wires": [
+            [
+                "ddaa344562802356"
+            ]
+        ]
+    },
+    {
+        "id": "55650e5d8188e65a",
+        "type": "function",
+        "z": "01a8f56dc3f304a5",
+        "name": "Reset accounts data",
+        "func": "var accounts = flow.get(\"accounts\");\n\nflow.set(\"accounts\", [])\n\nmsg.payload = accounts;\nreturn msg;",
+        "outputs": 1,
+        "noerr": 0,
+        "initialize": "",
+        "finalize": "",
+        "libs": [],
+        "x": 500,
+        "y": 460,
+        "wires": [
+            [
+                "a34216af271bedf8"
+            ]
+        ]
+    },
+    {
+        "id": "09163c46dc875617",
+        "type": "inject",
+        "z": "01a8f56dc3f304a5",
+        "name": "",
+        "props": [
+            {
+                "p": "payload"
+            },
+            {
+                "p": "topic",
+                "vt": "str"
+            }
+        ],
+        "repeat": "",
+        "crontab": "",
+        "once": false,
+        "onceDelay": 0.1,
+        "topic": "",
+        "payload": "",
+        "payloadType": "date",
+        "x": 280,
+        "y": 460,
+        "wires": [
+            [
+                "55650e5d8188e65a"
+            ]
+        ]
+    },
+    {
+        "id": "a34216af271bedf8",
+        "type": "debug",
+        "z": "01a8f56dc3f304a5",
+        "name": "debug 5",
+        "active": true,
+        "tosidebar": true,
+        "console": false,
+        "tostatus": false,
+        "complete": "payload",
+        "targetType": "msg",
+        "statusVal": "",
+        "statusType": "auto",
+        "x": 740,
+        "y": 460,
+        "wires": []
+    },
+    {
+        "id": "a711f977638c3997",
+        "type": "inject",
+        "z": "01a8f56dc3f304a5",
+        "name": "",
+        "props": [
+            {
+                "p": "payload"
+            },
+            {
+                "p": "topic",
+                "vt": "str"
+            }
+        ],
+        "repeat": "",
+        "crontab": "",
+        "once": false,
+        "onceDelay": 0.1,
+        "topic": "",
+        "payload": "",
+        "payloadType": "date",
+        "x": 220,
+        "y": 540,
+        "wires": [
+            [
+                "2e19f1651f336700"
+            ]
+        ]
+    },
+    {
+        "id": "2e19f1651f336700",
+        "type": "firebase-out",
+        "z": "01a8f56dc3f304a5",
+        "name": "",
+        "database": "a14529af611d0593",
+        "path": "NRData/timestamp",
+        "pathType": "str",
+        "priority": 1,
+        "queryType": "push",
+        "x": 470,
+        "y": 540,
+        "wires": []
+    },
+    {
+        "id": "e0f0ae541e2bed8e",
+        "type": "firebase-get",
+        "z": "01a8f56dc3f304a5",
+        "name": "",
+        "constraint": {},
+        "database": "a14529af611d0593",
+        "outputType": "auto",
+        "passThrough": false,
+        "path": "NRData",
+        "pathType": "str",
+        "useConstraint": false,
+        "x": 460,
+        "y": 600,
+        "wires": [
+            [
+                "bd3ce26baa864d81"
+            ]
+        ]
+    },
+    {
+        "id": "8fb6d1bb633771ac",
+        "type": "inject",
+        "z": "01a8f56dc3f304a5",
+        "name": "",
+        "props": [
+            {
+                "p": "payload"
+            },
+            {
+                "p": "topic",
+                "vt": "str"
+            }
+        ],
+        "repeat": "",
+        "crontab": "",
+        "once": false,
+        "onceDelay": 0.1,
+        "topic": "",
+        "payload": "",
+        "payloadType": "str",
+        "x": 250,
+        "y": 600,
+        "wires": [
+            [
+                "e0f0ae541e2bed8e"
+            ]
+        ]
+    },
+    {
+        "id": "bd3ce26baa864d81",
+        "type": "debug",
+        "z": "01a8f56dc3f304a5",
+        "name": "debug 6",
+        "active": true,
+        "tosidebar": true,
+        "console": false,
+        "tostatus": false,
+        "complete": "payload",
+        "targetType": "msg",
+        "statusVal": "",
+        "statusType": "auto",
+        "x": 660,
+        "y": 600,
+        "wires": []
+    },
+    {
+        "id": "18136a764050f740",
+        "type": "ui_group",
+        "name": "Sign_In",
+        "tab": "1eea47fd.237178",
+        "order": 1,
+        "disp": true,
+        "width": "6",
+        "collapse": false,
+        "className": ""
+    },
+    {
+        "id": "f4a7bf2f8fb4aa18",
+        "type": "ui_group",
+        "name": "Data",
+        "tab": "1eea47fd.237178",
+        "order": 2,
+        "disp": true,
+        "width": "6",
+        "collapse": false,
+        "className": ""
+    },
+    {
+        "id": "a14529af611d0593",
+        "type": "database-config",
+        "name": "Node-Red Database",
+        "authType": "email",
+        "claims": {},
+        "createUser": false,
+        "useClaims": false
+    },
+    {
+        "id": "1eea47fd.237178",
+        "type": "ui_tab",
+        "name": "Dashboard",
+        "icon": "dashboard",
+        "order": 5,
+        "disabled": false,
+        "hidden": false
+    }
+]
