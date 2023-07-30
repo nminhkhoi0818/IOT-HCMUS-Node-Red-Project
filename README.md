@@ -15,3 +15,4 @@
 
 ## Connect to Wokwi
 - Link Wokwi: https://wokwi.com/projects/370947012639140865
+- Link Docs: https://docs.google.com/document/d/1Vny1QXAipkpkVym9r81qsAtiEqaVxs0XHcJ2OIiz7Kg/edit?usp=sharing
