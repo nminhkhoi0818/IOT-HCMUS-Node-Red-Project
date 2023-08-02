@@ -16,6 +16,14 @@
         "env": []
     },
     {
+        "id": "7466a849aa8b0cd2",
+        "type": "tab",
+        "label": "Flow 3",
+        "disabled": false,
+        "info": "",
+        "env": []
+    },
+    {
         "id": "0a6acb84c648ac42",
         "type": "ui_base",
         "theme": {
@@ -145,7 +153,7 @@
         "type": "ui_tab",
         "name": "Dashboard",
         "icon": "dashboard",
-        "order": 5,
+        "order": 1,
         "disabled": false,
         "hidden": false
     },
@@ -295,6 +303,26 @@
         "collapse": false
     },
     {
+        "id": "a2cde38270e59c21",
+        "type": "ui_tab",
+        "name": "Data",
+        "icon": "dashboard",
+        "order": 2,
+        "disabled": false,
+        "hidden": false
+    },
+    {
+        "id": "509a730cb12568ae",
+        "type": "ui_group",
+        "name": "Data",
+        "tab": "a2cde38270e59c21",
+        "order": 1,
+        "disp": true,
+        "width": "6",
+        "collapse": false,
+        "className": ""
+    },
+    {
         "id": "bf6b235abb37a1ca",
         "type": "ui_form",
         "z": "01a8f56dc3f304a5",
@@ -388,7 +416,7 @@
         "type": "function",
         "z": "01a8f56dc3f304a5",
         "name": "Handle success login",
-        "func": "msg.payload = {\n    group : {\n        \"show\": [\"Dashboard_Control\", \"Dashboard_Infomation\", \"Dashboard_Sensor_Data\", \"Dashboard_UserInfo\"],\n        \"hide\": [\"Dashboard_SignUp\", \"Dashboard_LogIn\"]\n    }\n}\nreturn msg;",
+        "func": "msg.payload = {\n    group : {\n        \"show\": [\"Dashboard_Control\", \"Dashboard_Infomation\", \"Dashboard_Sensor_Data\", \"Dashboard_UserInfo\", \"Data_Data\"],\n        \"hide\": [\"Dashboard_SignUp\", \"Dashboard_LogIn\"]\n    }\n}\nreturn msg;",
         "outputs": 1,
         "noerr": 0,
         "initialize": "",
@@ -437,7 +465,7 @@
         "type": "function",
         "z": "01a8f56dc3f304a5",
         "name": "To Login",
-        "func": "msg.payload = {\n    group: {\n        \"hide\": [\"Dashboard_Control\", \"Dashboard_Infomation\", \"Dashboard_Sensor_Data\", \"Dashboard_UserInfo\", \"Dashboard_SignUp\"],\n        \"show\": [\"Dashboard_LogIn\"]\n    }\n}\nreturn msg;",
+        "func": "msg.payload = {\n    group: {\n        \"hide\": [\"Dashboard_Control\", \"Dashboard_Infomation\", \"Dashboard_Sensor_Data\", \"Dashboard_UserInfo\", \"Dashboard_SignUp\", \"Data_Data\"],\n        \"show\": [\"Dashboard_LogIn\"]\n    }\n}\nreturn msg;",
         "outputs": 1,
         "noerr": 0,
         "initialize": "",
@@ -484,7 +512,7 @@
         "type": "function",
         "z": "01a8f56dc3f304a5",
         "name": "Get current time",
-        "func": "var d = new Date();\n\n// convert to msec\n// subtract local time zone offset\n// get UTC time in msec\nvar utc = d.getTime() + (d.getTimezoneOffset() * 60000);\n\n// create new Date object for different city\n// using supplied offset\nvar nd = new Date(utc + (3600000 * 7));\nmsg.payload = nd.toLocaleString();\nreturn msg;",
+        "func": "var d = new Date();\nvar utc = d.getTime() + (d.getTimezoneOffset() * 60000);\nvar nd = new Date(utc + (3600000 * 7));\nmsg.payload = nd.toLocaleString();\nreturn msg;",
         "outputs": 1,
         "noerr": 0,
         "initialize": "",
@@ -516,90 +544,6 @@
         "fontSize": 16,
         "color": "#000000",
         "x": 510,
-        "y": 560,
-        "wires": []
-    },
-    {
-        "id": "abe53c9c63903bbb",
-        "type": "ui_switch",
-        "z": "01a8f56dc3f304a5",
-        "name": "",
-        "label": "Open/Close Door",
-        "tooltip": "",
-        "group": "a6943afb2c79c690",
-        "order": 0,
-        "width": 0,
-        "height": 0,
-        "passthru": true,
-        "decouple": "false",
-        "topic": "topic",
-        "topicType": "msg",
-        "style": "",
-        "onvalue": "true",
-        "onvalueType": "bool",
-        "onicon": "",
-        "oncolor": "",
-        "offvalue": "false",
-        "offvalueType": "bool",
-        "officon": "",
-        "offcolor": "",
-        "animate": false,
-        "className": "",
-        "x": 810,
-        "y": 500,
-        "wires": [
-            []
-        ]
-    },
-    {
-        "id": "f5a7ed7d9ed4e3d0",
-        "type": "ui_switch",
-        "z": "01a8f56dc3f304a5",
-        "name": "",
-        "label": "LED",
-        "tooltip": "",
-        "group": "a6943afb2c79c690",
-        "order": 1,
-        "width": 0,
-        "height": 0,
-        "passthru": true,
-        "decouple": "false",
-        "topic": "topic",
-        "topicType": "msg",
-        "style": "",
-        "onvalue": "true",
-        "onvalueType": "bool",
-        "onicon": "",
-        "oncolor": "",
-        "offvalue": "false",
-        "offvalueType": "bool",
-        "officon": "",
-        "offcolor": "",
-        "animate": false,
-        "className": "",
-        "x": 770,
-        "y": 560,
-        "wires": [
-            [
-                "f3969748193e8670"
-            ]
-        ]
-    },
-    {
-        "id": "f3969748193e8670",
-        "type": "mqtt out",
-        "z": "01a8f56dc3f304a5",
-        "name": "",
-        "topic": "21CLC05N02/LED",
-        "qos": "",
-        "retain": "",
-        "respTopic": "",
-        "contentType": "",
-        "userProps": "",
-        "correl": "",
-        "expiry": "",
-        "broker": "732c6ba564cc905c",
-        "x": 1010,
         "y": 560,
         "wires": []
     },
@@ -729,7 +673,7 @@
         "type": "function",
         "z": "01a8f56dc3f304a5",
         "name": "Get data",
-        "func": "msg.payload = \"Username: \" + global.get(\"username\") + \", Password: \" + global.get(\"password\");\nreturn msg;",
+        "func": "msg.payload = {\n    username: global.get(\"username\"),\n    password: global.get(\"password\")\n}\nreturn msg;",
         "outputs": 1,
         "noerr": 0,
         "initialize": "",
@@ -739,27 +683,9 @@
         "y": 120,
         "wires": [
             [
-                "9e0108d5a8c0c68a",
-                "016aad23b3b062c1"
+                "9e0108d5a8c0c68a"
             ]
         ]
-    },
-    {
-        "id": "016aad23b3b062c1",
-        "type": "debug",
-        "z": "01a8f56dc3f304a5",
-        "name": "debug 8",
-        "active": true,
-        "tosidebar": true,
-        "console": false,
-        "tostatus": false,
-        "complete": "payload",
-        "targetType": "msg",
-        "statusVal": "",
-        "statusType": "auto",
-        "x": 880,
-        "y": 120,
-        "wires": []
     },
     {
         "id": "7378251d1930bb18",
@@ -822,7 +748,7 @@
         "type": "function",
         "z": "01a8f56dc3f304a5",
         "name": "Check valid",
-        "func": "var data = msg.payload;\n\nvar username_value = global.get(\"username_value\");\nvar password_value = global.get(\"password_value\");\n\nfor(var i = 0; i < data.length; i++) {\n    var usernameAndPassword = data[i].split(', ');\n    var username = usernameAndPassword[0].split(': ')[1];\n    var password = usernameAndPassword[1].split(': ')[1];\n    if(username == username_value && password == password_value) {\n        msg.payload = 1;\n        return msg;\n    }\n}\n\nmsg.payload = 0;\nreturn msg;",
+        "func": "var data = msg.payload;\n\nvar username_value = global.get(\"username_value\");\nvar password_value = global.get(\"password_value\");\n\nfor(var i = 0; i < data.length; i++) {\n    if(data[i].username == username_value && data[i].password == password_value) {\n        msg.payload = 1;\n        return msg;\n    }\n}\n\nmsg.payload = 0;\nreturn msg;",
         "outputs": 1,
         "noerr": 0,
         "initialize": "",
@@ -956,9 +882,9 @@
         "id": "3f48902300d26d0e",
         "type": "ui_ui_control",
         "z": "01a8f56dc3f304a5",
-        "name": "Sign Up",
+        "name": "Login",
         "events": "all",
-        "x": 500,
+        "x": 490,
         "y": 420,
         "wires": [
             []
@@ -1089,6 +1015,167 @@
         "wires": []
     },
     {
+        "id": "ea77be719b7a8fb6",
+        "type": "http request",
+        "z": "01a8f56dc3f304a5",
+        "name": "Call API Open Weather",
+        "method": "GET",
+        "ret": "obj",
+        "paytoqs": "ignore",
+        "url": "http://api.openweathermap.org/data/2.5/weather?q=hanoi&appid=abc8cffe1911b1ec8e2d6a1db4e3e3a6&units=metric",
+        "tls": "",
+        "persist": false,
+        "proxy": "",
+        "insecureHTTPParser": false,
+        "authType": "",
+        "senderr": false,
+        "headers": [],
+        "x": 350,
+        "y": 760,
+        "wires": [
+            [
+                "22259f4297280d7c",
+                "b65a4f05fc308cae",
+                "824f57730bfc2ae5",
+                "6f842829e86c3f3d"
+            ]
+        ]
+    },
+    {
+        "id": "22259f4297280d7c",
+        "type": "ui_text",
+        "z": "01a8f56dc3f304a5",
+        "group": "eaba383d5f81daf1",
+        "order": 2,
+        "width": 8,
+        "height": 1,
+        "name": "",
+        "label": "Weather",
+        "format": "{{msg.payload.weather[0].main}}",
+        "layout": "row-spread",
+        "className": "",
+        "style": false,
+        "font": "",
+        "fontSize": 16,
+        "color": "#000000",
+        "x": 620,
+        "y": 820,
+        "wires": []
+    },
+    {
+        "id": "b65a4f05fc308cae",
+        "type": "ui_gauge",
+        "z": "01a8f56dc3f304a5",
+        "name": "",
+        "group": "eaba383d5f81daf1",
+        "order": 3,
+        "width": 4,
+        "height": 4,
+        "gtype": "gage",
+        "title": "Temperature",
+        "label": "units",
+        "format": "{{msg.payload.main.temp}}",
+        "min": 0,
+        "max": "100",
+        "colors": [
+            "#00b500",
+            "#e6e600",
+            "#ca3838"
+        ],
+        "seg1": "",
+        "seg2": "",
+        "diff": false,
+        "className": "",
+        "x": 630,
+        "y": 880,
+        "wires": []
+    },
+    {
+        "id": "824f57730bfc2ae5",
+        "type": "ui_gauge",
+        "z": "01a8f56dc3f304a5",
+        "name": "",
+        "group": "eaba383d5f81daf1",
+        "order": 4,
+        "width": 4,
+        "height": 4,
+        "gtype": "wave",
+        "title": "Humidity",
+        "label": "units",
+        "format": "{{msg.payload.main.humidity}}",
+        "min": 0,
+        "max": "100",
+        "colors": [
+            "#00b500",
+            "#e6e600",
+            "#ca3838"
+        ],
+        "seg1": "",
+        "seg2": "",
+        "diff": false,
+        "className": "",
+        "x": 620,
+        "y": 940,
+        "wires": []
+    },
+    {
+        "id": "a94dd2b06070a50e",
+        "type": "ui_text",
+        "z": "01a8f56dc3f304a5",
+        "group": "eaba383d5f81daf1",
+        "order": 1,
+        "width": 0,
+        "height": 0,
+        "name": "",
+        "label": "Last Update",
+        "format": "{{msg.payload.curTime}}",
+        "layout": "row-spread",
+        "className": "",
+        "style": false,
+        "font": "",
+        "fontSize": 16,
+        "color": "#000000",
+        "x": 870,
+        "y": 760,
+        "wires": []
+    },
+    {
+        "id": "6f842829e86c3f3d",
+        "type": "function",
+        "z": "01a8f56dc3f304a5",
+        "name": "Convert timestamp",
+        "func": "var timestamp = msg.payload.dt;\nvar date = new Date(timestamp * 1000);\nvar hanoiTimezoneOffset = 25200; \nvar hanoiTime = new Date(date.getTime() + hanoiTimezoneOffset * 1000);\nvar formattedHanoiTime = hanoiTime.toLocaleString();\nmsg.payload.curTime = formattedHanoiTime;\nreturn msg;",
+        "outputs": 1,
+        "noerr": 0,
+        "initialize": "",
+        "finalize": "",
+        "libs": [],
+        "x": 650,
+        "y": 760,
+        "wires": [
+            [
+                "a94dd2b06070a50e"
+            ]
+        ]
+    },
+    {
+        "id": "aa8516b2e96d34d3",
+        "type": "complete",
+        "z": "01a8f56dc3f304a5",
+        "name": "",
+        "scope": [
+            "1808947ac9da3162"
+        ],
+        "uncaught": false,
+        "x": 90,
+        "y": 760,
+        "wires": [
+            [
+                "ea77be719b7a8fb6"
+            ]
+        ]
+    },
+    {
         "id": "e652c60bab29cc4d",
         "type": "mqtt in",
         "z": "241dd79a15bebea1",
@@ -1102,7 +1189,7 @@
         "rh": 0,
         "inputs": 0,
         "x": 130,
-        "y": 160,
+        "y": 100,
         "wires": [
             [
                 "8ca2a9c310130f86"
@@ -1123,7 +1210,7 @@
         "statusVal": "",
         "statusType": "auto",
         "x": 610,
-        "y": 100,
+        "y": 40,
         "wires": []
     },
     {
@@ -1151,7 +1238,7 @@
         "diff": false,
         "className": "",
         "x": 580,
-        "y": 160,
+        "y": 100,
         "wires": []
     },
     {
@@ -1166,7 +1253,7 @@
         "finalize": "",
         "libs": [],
         "x": 360,
-        "y": 160,
+        "y": 100,
         "wires": [
             [
                 "3c57f1e9c84aea94",
@@ -1200,14 +1287,238 @@
         "diff": false,
         "className": "",
         "x": 590,
-        "y": 220,
+        "y": 160,
         "wires": []
     },
     {
-        "id": "e103c7bb5f0db0c7",
-        "type": "debug",
+        "id": "abe53c9c63903bbb",
+        "type": "ui_switch",
         "z": "241dd79a15bebea1",
-        "name": "Debug API data",
+        "name": "",
+        "label": "Locked/Unlocked",
+        "tooltip": "",
+        "group": "a6943afb2c79c690",
+        "order": 0,
+        "width": 0,
+        "height": 0,
+        "passthru": true,
+        "decouple": "false",
+        "topic": "",
+        "topicType": "msg",
+        "style": "",
+        "onvalue": "true",
+        "onvalueType": "str",
+        "onicon": "",
+        "oncolor": "",
+        "offvalue": "false",
+        "offvalueType": "str",
+        "officon": "",
+        "offcolor": "",
+        "animate": false,
+        "className": "",
+        "x": 130,
+        "y": 360,
+        "wires": [
+            [
+                "6c83bbbd161bc844",
+                "8512318b0aa55332"
+            ]
+        ]
+    },
+    {
+        "id": "f3969748193e8670",
+        "type": "mqtt out",
+        "z": "241dd79a15bebea1",
+        "name": "",
+        "topic": "21CLC05N02/BUZZER",
+        "qos": "",
+        "retain": "",
+        "respTopic": "",
+        "contentType": "",
+        "userProps": "",
+        "correl": "",
+        "expiry": "",
+        "broker": "732c6ba564cc905c",
+        "x": 410,
+        "y": 560,
+        "wires": []
+    },
+    {
+        "id": "6c83bbbd161bc844",
+        "type": "switch",
+        "z": "241dd79a15bebea1",
+        "name": "",
+        "property": "payload",
+        "propertyType": "msg",
+        "rules": [
+            {
+                "t": "eq",
+                "v": "true",
+                "vt": "str"
+            },
+            {
+                "t": "eq",
+                "v": "false",
+                "vt": "str"
+            }
+        ],
+        "checkall": "true",
+        "repair": false,
+        "outputs": 2,
+        "x": 330,
+        "y": 360,
+        "wires": [
+            [
+                "d07177a0e31ba5c1"
+            ],
+            [
+                "fd435c4f58cb2b3e"
+            ]
+        ]
+    },
+    {
+        "id": "a81ae6fecae843b8",
+        "type": "firebase-out",
+        "z": "241dd79a15bebea1",
+        "name": "",
+        "database": "a14529af611d0593",
+        "path": "door_status",
+        "pathType": "str",
+        "priority": 1,
+        "queryType": "push",
+        "x": 790,
+        "y": 300,
+        "wires": []
+    },
+    {
+        "id": "d07177a0e31ba5c1",
+        "type": "function",
+        "z": "241dd79a15bebea1",
+        "name": "Get data for open door",
+        "func": "var d = new Date();\nvar utc = d.getTime() + (d.getTimezoneOffset() * 60000);\nvar nd = new Date(utc + (3600000 * 7));\n\nmsg.payload = {\n    username: global.get(\"username_value\"),\n    status: \"open\",\n    time: nd.toLocaleString()\n}\nreturn msg;",
+        "outputs": 1,
+        "noerr": 0,
+        "initialize": "",
+        "finalize": "",
+        "libs": [],
+        "x": 560,
+        "y": 300,
+        "wires": [
+            [
+                "a81ae6fecae843b8"
+            ]
+        ]
+    },
+    {
+        "id": "fd435c4f58cb2b3e",
+        "type": "function",
+        "z": "241dd79a15bebea1",
+        "name": "Get data for close door",
+        "func": "var d = new Date();\nvar utc = d.getTime() + (d.getTimezoneOffset() * 60000);\nvar nd = new Date(utc + (3600000 * 7));\n\nmsg.payload = {\n    username: global.get(\"username_value\"),\n    status: \"close\",\n    time: nd.toLocaleString()\n}\nreturn msg;",
+        "outputs": 1,
+        "noerr": 0,
+        "initialize": "",
+        "finalize": "",
+        "libs": [],
+        "x": 560,
+        "y": 420,
+        "wires": [
+            [
+                "695c647c2b753ffc"
+            ]
+        ]
+    },
+    {
+        "id": "695c647c2b753ffc",
+        "type": "firebase-out",
+        "z": "241dd79a15bebea1",
+        "name": "",
+        "database": "a14529af611d0593",
+        "path": "door_status",
+        "pathType": "str",
+        "priority": 1,
+        "queryType": "push",
+        "x": 790,
+        "y": 420,
+        "wires": []
+    },
+    {
+        "id": "748910b287d38ab7",
+        "type": "ui_switch",
+        "z": "241dd79a15bebea1",
+        "name": "",
+        "label": "Turn On/Off Buzzer",
+        "tooltip": "",
+        "group": "a6943afb2c79c690",
+        "order": 2,
+        "width": 0,
+        "height": 0,
+        "passthru": true,
+        "decouple": "false",
+        "topic": "",
+        "topicType": "msg",
+        "style": "",
+        "onvalue": "true",
+        "onvalueType": "bool",
+        "onicon": "",
+        "oncolor": "",
+        "offvalue": "false",
+        "offvalueType": "bool",
+        "officon": "",
+        "offcolor": "",
+        "animate": false,
+        "className": "",
+        "x": 130,
+        "y": 560,
+        "wires": [
+            [
+                "f3969748193e8670"
+            ]
+        ]
+    },
+    {
+        "id": "8512318b0aa55332",
+        "type": "mqtt out",
+        "z": "241dd79a15bebea1",
+        "name": "",
+        "topic": "21CLC05N02/LOCK",
+        "qos": "",
+        "retain": "",
+        "respTopic": "",
+        "contentType": "",
+        "userProps": "",
+        "correl": "",
+        "expiry": "",
+        "broker": "732c6ba564cc905c",
+        "x": 400,
+        "y": 480,
+        "wires": []
+    },
+    {
+        "id": "a05d9c72f1aeedba",
+        "type": "firebase-get",
+        "z": "7466a849aa8b0cd2",
+        "name": "GET door_status",
+        "constraint": {},
+        "database": "a14529af611d0593",
+        "outputType": "auto",
+        "passThrough": false,
+        "path": "door_status",
+        "pathType": "str",
+        "useConstraint": false,
+        "x": 310,
+        "y": 60,
+        "wires": [
+            [
+                "96bdfca6ddc6bcd3"
+            ]
+        ]
+    },
+    {
+        "id": "b60f688a24ad4ba2",
+        "type": "debug",
+        "z": "7466a849aa8b0cd2",
+        "name": "debug 12",
         "active": true,
         "tosidebar": true,
         "console": false,
@@ -1216,199 +1527,292 @@
         "targetType": "msg",
         "statusVal": "",
         "statusType": "auto",
-        "x": 680,
-        "y": 280,
+        "x": 480,
+        "y": 120,
         "wires": []
     },
     {
-        "id": "ea77be719b7a8fb6",
-        "type": "http request",
-        "z": "241dd79a15bebea1",
-        "name": "Call API Open Weather",
-        "method": "GET",
-        "ret": "obj",
-        "paytoqs": "ignore",
-        "url": "http://api.openweathermap.org/data/2.5/weather?q=hanoi&appid=abc8cffe1911b1ec8e2d6a1db4e3e3a6&units=metric",
-        "tls": "",
-        "persist": false,
-        "proxy": "",
-        "insecureHTTPParser": false,
-        "authType": "",
-        "senderr": false,
-        "headers": [],
-        "x": 390,
-        "y": 320,
-        "wires": [
-            [
-                "e103c7bb5f0db0c7",
-                "22259f4297280d7c",
-                "b65a4f05fc308cae",
-                "824f57730bfc2ae5",
-                "6f842829e86c3f3d"
-            ]
-        ]
-    },
-    {
-        "id": "22259f4297280d7c",
-        "type": "ui_text",
-        "z": "241dd79a15bebea1",
-        "group": "eaba383d5f81daf1",
-        "order": 2,
-        "width": 8,
-        "height": 1,
-        "name": "",
-        "label": "Weather",
-        "format": "{{msg.payload.weather[0].main}}",
-        "layout": "row-spread",
-        "className": "",
-        "style": false,
-        "font": "",
-        "fontSize": 16,
-        "color": "#000000",
-        "x": 660,
-        "y": 400,
-        "wires": []
-    },
-    {
-        "id": "b65a4f05fc308cae",
-        "type": "ui_gauge",
-        "z": "241dd79a15bebea1",
-        "name": "",
-        "group": "eaba383d5f81daf1",
-        "order": 3,
-        "width": 4,
-        "height": 4,
-        "gtype": "gage",
-        "title": "Temperature",
-        "label": "units",
-        "format": "{{msg.payload.main.temp}}",
-        "min": 0,
-        "max": "100",
-        "colors": [
-            "#00b500",
-            "#e6e600",
-            "#ca3838"
-        ],
-        "seg1": "",
-        "seg2": "",
-        "diff": false,
-        "className": "",
-        "x": 670,
-        "y": 460,
-        "wires": []
-    },
-    {
-        "id": "824f57730bfc2ae5",
-        "type": "ui_gauge",
-        "z": "241dd79a15bebea1",
-        "name": "",
-        "group": "eaba383d5f81daf1",
-        "order": 4,
-        "width": 4,
-        "height": 4,
-        "gtype": "wave",
-        "title": "Humidity",
-        "label": "units",
-        "format": "{{msg.payload.main.humidity}}",
-        "min": 0,
-        "max": "100",
-        "colors": [
-            "#00b500",
-            "#e6e600",
-            "#ca3838"
-        ],
-        "seg1": "",
-        "seg2": "",
-        "diff": false,
-        "className": "",
-        "x": 660,
-        "y": 520,
-        "wires": []
-    },
-    {
-        "id": "a94dd2b06070a50e",
-        "type": "ui_text",
-        "z": "241dd79a15bebea1",
-        "group": "eaba383d5f81daf1",
-        "order": 1,
-        "width": 0,
-        "height": 0,
-        "name": "",
-        "label": "Last Update",
-        "format": "{{msg.payload.curTime}}",
-        "layout": "row-spread",
-        "className": "",
-        "style": false,
-        "font": "",
-        "fontSize": 16,
-        "color": "#000000",
-        "x": 910,
-        "y": 340,
-        "wires": []
-    },
-    {
-        "id": "6f842829e86c3f3d",
+        "id": "be6200b79356e9a5",
         "type": "function",
-        "z": "241dd79a15bebea1",
-        "name": "Convert timestamp",
-        "func": "var timestamp = msg.payload.dt;\nvar date = new Date(timestamp * 1000);\nvar hanoiTimezoneOffset = 25200; \nvar hanoiTime = new Date(date.getTime() + hanoiTimezoneOffset * 1000);\nvar formattedHanoiTime = hanoiTime.toLocaleString();\nmsg.payload.curTime = formattedHanoiTime;\nreturn msg;",
+        "z": "7466a849aa8b0cd2",
+        "name": "GET door_user",
+        "func": "let statuses = flow.get(\"door_statuses\");\nconst users = Array.from(\n    new Set(statuses.map(stat => stat.username))\n).sort();\nmsg.options = users;\nflow.set(\"users\", users);\nreturn msg;",
         "outputs": 1,
         "noerr": 0,
         "initialize": "",
         "finalize": "",
         "libs": [],
-        "x": 690,
-        "y": 340,
+        "x": 300,
+        "y": 240,
         "wires": [
             [
-                "a94dd2b06070a50e",
-                "cf8935729ca5764e"
+                "b352bc3ad830e125"
             ]
         ]
     },
     {
-        "id": "cf8935729ca5764e",
-        "type": "debug",
-        "z": "241dd79a15bebea1",
-        "name": "Debug current time",
-        "active": true,
-        "tosidebar": true,
-        "console": false,
-        "tostatus": false,
-        "complete": "payload.curTime",
-        "targetType": "msg",
-        "statusVal": "",
-        "statusType": "auto",
-        "x": 930,
-        "y": 400,
-        "wires": []
-    },
-    {
-        "id": "6c4406509a8b101b",
-        "type": "inject",
-        "z": "241dd79a15bebea1",
-        "name": "Timer",
-        "props": [
-            {
-                "p": "payload"
-            },
-            {
-                "p": "topic",
-                "vt": "str"
-            }
-        ],
-        "repeat": "10800",
-        "crontab": "",
-        "once": false,
-        "onceDelay": 0.1,
-        "topic": "",
-        "payload": "",
-        "payloadType": "date",
-        "x": 130,
-        "y": 320,
+        "id": "ad5b6a207dc56ba0",
+        "type": "ui_date_picker",
+        "z": "7466a849aa8b0cd2",
+        "name": "Door_date",
+        "label": "Date for door status",
+        "group": "509a730cb12568ae",
+        "order": 1,
+        "width": 0,
+        "height": 0,
+        "passthru": true,
+        "topic": "door_date",
+        "topicType": "msg",
+        "className": "",
+        "x": 110,
+        "y": 120,
         "wires": [
             [
-                "ea77be719b7a8fb6"
+                "e25d744bd5d54d5c"
+            ]
+        ]
+    },
+    {
+        "id": "f340c943b30a122e",
+        "type": "ui_dropdown",
+        "z": "7466a849aa8b0cd2",
+        "name": "Door_action",
+        "label": "Action",
+        "tooltip": "",
+        "place": "Action",
+        "group": "509a730cb12568ae",
+        "order": 2,
+        "width": 4,
+        "height": 1,
+        "passthru": true,
+        "multiple": true,
+        "options": [
+            {
+                "label": "Lock",
+                "value": "close",
+                "type": "str"
+            },
+            {
+                "label": "Unlock",
+                "value": "open",
+                "type": "str"
+            }
+        ],
+        "payload": "",
+        "topic": "door_action",
+        "topicType": "msg",
+        "className": "",
+        "x": 110,
+        "y": 180,
+        "wires": [
+            [
+                "17cf70f40a660e4e"
+            ]
+        ]
+    },
+    {
+        "id": "b352bc3ad830e125",
+        "type": "ui_dropdown",
+        "z": "7466a849aa8b0cd2",
+        "name": "Door_user",
+        "label": "User",
+        "tooltip": "",
+        "place": "User",
+        "group": "509a730cb12568ae",
+        "order": 3,
+        "width": 4,
+        "height": 1,
+        "passthru": true,
+        "multiple": true,
+        "options": [
+            {
+                "label": "",
+                "value": "",
+                "type": "str"
+            }
+        ],
+        "payload": "",
+        "topic": "door_user",
+        "topicType": "msg",
+        "className": "",
+        "x": 530,
+        "y": 240,
+        "wires": [
+            [
+                "eed7f55dd11ea766"
+            ]
+        ]
+    },
+    {
+        "id": "96bdfca6ddc6bcd3",
+        "type": "function",
+        "z": "7466a849aa8b0cd2",
+        "name": "Filter door_status",
+        "func": "let data = msg.payload;\nlet max_entries = 10;\nlet statuses = [];\n\nfor (let stat in data)\n    if (max_entries-- && data.hasOwnProperty(stat))\n        statuses.push(data[stat]);\n\nflow.set(\"door_statuses\", statuses);\nflow.set(\"door_actions\", []);\nflow.set(\"door_users\", []);\nmsg.payload = statuses;\nreturn msg;",
+        "outputs": 1,
+        "noerr": 0,
+        "initialize": "",
+        "finalize": "",
+        "libs": [],
+        "x": 570,
+        "y": 60,
+        "wires": [
+            []
+        ]
+    },
+    {
+        "id": "7f8cad5e5c1428fe",
+        "type": "ui_template",
+        "z": "7466a849aa8b0cd2",
+        "group": "509a730cb12568ae",
+        "name": "Door status table",
+        "order": 4,
+        "width": 8,
+        "height": 5,
+        "format": "<table>\n    <tr>\n        <th>Time</th>\n        <th>Action</th>\n        <th>User</th>\n    </tr>\n    <tr ng-repeat=\"stat in msg.payload | orderBy:'time':true\">\n        <td>{{stat.time}}</td>\n        <td>{{stat.status}}</td>\n        <td>{{stat.username}}</td>\n    </tr>\n</table>",
+        "storeOutMessages": true,
+        "fwdInMessages": true,
+        "resendOnRefresh": true,
+        "templateScope": "local",
+        "className": "",
+        "x": 550,
+        "y": 300,
+        "wires": [
+            []
+        ]
+    },
+    {
+        "id": "eed7f55dd11ea766",
+        "type": "function",
+        "z": "7466a849aa8b0cd2",
+        "name": "Filter door_user",
+        "func": "// let users = msg.payload\n// if (!users.length) {\n//     msg.payload = flow.get(\"door_statuses\");\n//     flow.set(\"display_statuses\", msg.payload);\n//     return msg;\n// }\n// let statuses = flow.get(\"door_statuses\");\n// msg.payload = statuses.filter(stat => users.includes(stat.username));\n// flow.set(\"display_statuses\", msg.payload);\n// return msg;\nflow.set(\"door_users\", msg.payload);",
+        "outputs": 1,
+        "noerr": 0,
+        "initialize": "",
+        "finalize": "",
+        "libs": [],
+        "x": 720,
+        "y": 240,
+        "wires": [
+            []
+        ]
+    },
+    {
+        "id": "df6c672af42cce94",
+        "type": "complete",
+        "z": "7466a849aa8b0cd2",
+        "name": "",
+        "scope": [
+            "96bdfca6ddc6bcd3"
+        ],
+        "uncaught": false,
+        "x": 110,
+        "y": 240,
+        "wires": [
+            [
+                "be6200b79356e9a5"
+            ]
+        ]
+    },
+    {
+        "id": "117c089be7673ac1",
+        "type": "complete",
+        "z": "7466a849aa8b0cd2",
+        "name": "",
+        "scope": [
+            "96bdfca6ddc6bcd3",
+            "eed7f55dd11ea766",
+            "17cf70f40a660e4e",
+            "e25d744bd5d54d5c"
+        ],
+        "uncaught": false,
+        "x": 110,
+        "y": 300,
+        "wires": [
+            [
+                "e48b2659b0e34928"
+            ]
+        ]
+    },
+    {
+        "id": "e48b2659b0e34928",
+        "type": "function",
+        "z": "7466a849aa8b0cd2",
+        "name": "Filter display_statuses",
+        "func": "let ddate = flow.get(\"door_date\");\nlet actions = flow.get(\"door_actions\");\nlet users = flow.get(\"door_users\");\nif (!actions.length) actions = [\"close\", \"open\"];\nif (!users.length) users = flow.get(\"users\");\nlet statuses = flow.get(\"door_statuses\");\nmsg.payload = statuses.filter(stat =>\n    ddate == stat.time.split(',')[0]\n    && actions.includes(stat.status)\n    && users.includes(stat.username));\nreturn msg;",
+        "outputs": 1,
+        "noerr": 0,
+        "initialize": "",
+        "finalize": "",
+        "libs": [],
+        "x": 320,
+        "y": 300,
+        "wires": [
+            [
+                "7f8cad5e5c1428fe"
+            ]
+        ]
+    },
+    {
+        "id": "17cf70f40a660e4e",
+        "type": "function",
+        "z": "7466a849aa8b0cd2",
+        "name": "Filter door_action",
+        "func": "// let actions = msg.payload\n// if (!actions.length) {\n//     msg.payload = flow.get(\"door_statuses\");\n//     flow.set(\"display_statuses\", msg.payload);\n//     return msg;\n// }\n// let statuses = flow.get(\"door_statuses\");\n// msg.payload = statuses.filter(stat => actions.includes(stat.status));\n// flow.set(\"display_statuses\", msg.payload);\n// return msg;\nflow.set(\"door_actions\", msg.payload);",
+        "outputs": 1,
+        "noerr": 0,
+        "initialize": "",
+        "finalize": "",
+        "libs": [],
+        "x": 310,
+        "y": 180,
+        "wires": [
+            []
+        ]
+    },
+    {
+        "id": "e25d744bd5d54d5c",
+        "type": "function",
+        "z": "7466a849aa8b0cd2",
+        "name": "Filter door_date",
+        "func": "if (!msg.payload) msg.payload = Date.now();\nlet ddate = new Date(msg.payload).toLocaleString();\nddate = ddate.split(',')[0];\nmsg.payload = ddate;\nflow.set(\"door_date\", msg.payload);\nreturn msg;",
+        "outputs": 1,
+        "noerr": 0,
+        "initialize": "",
+        "finalize": "",
+        "libs": [],
+        "x": 300,
+        "y": 120,
+        "wires": [
+            []
+        ]
+    },
+    {
+        "id": "d1e825dc3f468440",
+        "type": "ui_button",
+        "z": "7466a849aa8b0cd2",
+        "name": "Refresh",
+        "group": "509a730cb12568ae",
+        "order": 4,
+        "width": 0,
+        "height": 0,
+        "passthru": false,
+        "label": "Refresh",
+        "tooltip": "",
+        "color": "",
+        "bgcolor": "",
+        "className": "",
+        "icon": "",
+        "payload": "",
+        "payloadType": "str",
+        "topic": "topic",
+        "topicType": "msg",
+        "x": 100,
+        "y": 60,
+        "wires": [
+            [
+                "a05d9c72f1aeedba"
             ]
         ]
     }
