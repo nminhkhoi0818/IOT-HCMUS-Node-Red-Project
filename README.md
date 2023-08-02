@@ -10,9 +10,9 @@
 ## Install Nodes
 - From the menu, select "Manage palette", then click "Install"
 - Find the following nodes to install:
-- node-red-dashboard
-- @gogovega/node-red-contrib-firebase-realtime-database
-
+   - node-red-dashboard
+   - @gogovega/node-red-contrib-firebase-realtime-database
+   - node-red-contrib-telegrambot
 ## Connect to Wokwi
 - Link Wokwi: https://wokwi.com/projects/370947012639140865
 - Link Docs: https://docs.google.com/document/d/1Vny1QXAipkpkVym9r81qsAtiEqaVxs0XHcJ2OIiz7Kg/edit?usp=sharing
