@@ -205,12 +205,6 @@
         "className": ""
     },
     {
-        "id": "09c77e41819ec8b1",
-        "type": "firebaseCertificate",
-        "firebaseurl": "node-red-cdf82-default-rtdb",
-        "loginType": "jwt"
-    },
-    {
         "id": "a14529af611d0593",
         "type": "database-config",
         "name": "Node-Red Database",
@@ -321,6 +315,31 @@
         "width": "6",
         "collapse": false,
         "className": ""
+    },
+    {
+        "id": "305d27c48b016a55",
+        "type": "telegram bot",
+        "botname": "Door2MART-bot",
+        "usernames": "",
+        "chatids": "-1001652896051",
+        "baseapiurl": "",
+        "updatemode": "polling",
+        "pollinterval": "300",
+        "usesocks": false,
+        "sockshost": "",
+        "socksprotocol": "socks5",
+        "socksport": "6667",
+        "socksusername": "anonymous",
+        "sockspassword": "",
+        "bothost": "",
+        "botpath": "",
+        "localbotport": "8443",
+        "publicbotport": "8443",
+        "privatekey": "",
+        "certificate": "",
+        "useselfsignedcertificate": false,
+        "sslterminated": false,
+        "verboselogging": false
     },
     {
         "id": "bf6b235abb37a1ca",
@@ -454,7 +473,7 @@
         "z": "01a8f56dc3f304a5",
         "name": "Reset Login Group",
         "events": "all",
-        "x": 490,
+        "x": 530,
         "y": 480,
         "wires": [
             []
@@ -471,7 +490,7 @@
         "initialize": "",
         "finalize": "",
         "libs": [],
-        "x": 280,
+        "x": 300,
         "y": 480,
         "wires": [
             [
@@ -519,7 +538,7 @@
         "finalize": "",
         "libs": [],
         "x": 300,
-        "y": 560,
+        "y": 620,
         "wires": [
             [
                 "d82bca96f20841d7"
@@ -544,7 +563,7 @@
         "fontSize": 16,
         "color": "#000000",
         "x": 510,
-        "y": 560,
+        "y": 620,
         "wires": []
     },
     {
@@ -554,7 +573,7 @@
         "name": "Sign Up",
         "label": "",
         "group": "18136a764050f740",
-        "order": 1,
+        "order": 3,
         "width": 0,
         "height": 0,
         "options": [
@@ -563,6 +582,13 @@
                 "value": "username",
                 "type": "text",
                 "required": true,
+                "rows": null
+            },
+            {
+                "label": "Email",
+                "value": "email",
+                "type": "email",
+                "required": false,
                 "rows": null
             },
             {
@@ -582,6 +608,7 @@
         ],
         "formValue": {
             "username": "",
+            "email": "",
             "password": "",
             "password2": ""
         },
@@ -620,7 +647,7 @@
         "type": "function",
         "z": "01a8f56dc3f304a5",
         "name": "Check sync password",
-        "func": "if(msg.payload.password == msg.payload.password2) {\n    msg.payload = 1;\n\n    \n\n    if (msg.payload.password != \"\") {\n        global.set(\"password\", msg.payload.password);\n    }\n}\nelse {\n    msg.payload = 0;\n}\n\nreturn msg;",
+        "func": "if(msg.payload.password == msg.payload.password2) {\n    msg.payload = 1;\n    \n    if (msg.payload.password != \"\") {\n        global.set(\"password\", msg.payload.password);\n    }\n}\nelse {\n    msg.payload = 0;\n}\n\nreturn msg;",
         "outputs": 1,
         "noerr": 0,
         "initialize": "",
@@ -673,7 +700,7 @@
         "type": "function",
         "z": "01a8f56dc3f304a5",
         "name": "Get data",
-        "func": "msg.payload = {\n    username: global.get(\"username\"),\n    password: global.get(\"password\")\n}\nreturn msg;",
+        "func": "msg.payload = {\n    username: global.get(\"username\"),\n    password: global.get(\"password\"),\n    email: global.get(\"email\")\n}\nreturn msg;",
         "outputs": 1,
         "noerr": 0,
         "initialize": "",
@@ -692,7 +719,7 @@
         "type": "function",
         "z": "01a8f56dc3f304a5",
         "name": "Store user data",
-        "func": "if (msg.payload.username != \"\" && msg.payload.password != \"\") {\n    global.set(\"username\", msg.payload.username);\n    global.set(\"password\", msg.payload.password);\n}",
+        "func": "if (msg.payload.username != \"\" && msg.payload.password != \"\") {\n    global.set(\"username\", msg.payload.username);\n    global.set(\"password\", msg.payload.password);\n    global.set(\"email\", msg.payload.email);\n}",
         "outputs": 1,
         "noerr": 0,
         "initialize": "",
@@ -856,7 +883,7 @@
         "z": "01a8f56dc3f304a5",
         "name": "SignUp Button",
         "group": "f5649307edcf222c",
-        "order": 3,
+        "order": 2,
         "width": 0,
         "height": 0,
         "passthru": false,
@@ -915,7 +942,7 @@
         "z": "01a8f56dc3f304a5",
         "name": "LogIn Button",
         "group": "18136a764050f740",
-        "order": 3,
+        "order": 1,
         "width": 0,
         "height": 0,
         "passthru": false,
@@ -966,7 +993,7 @@
         ],
         "uncaught": false,
         "x": 90,
-        "y": 580,
+        "y": 640,
         "wires": [
             [
                 "ec2e72a7344b8cf5",
@@ -986,7 +1013,7 @@
         "finalize": "",
         "libs": [],
         "x": 300,
-        "y": 620,
+        "y": 680,
         "wires": [
             [
                 "ae2f6837f9dedd58"
@@ -1011,7 +1038,7 @@
         "fontSize": 16,
         "color": "#000000",
         "x": 490,
-        "y": 620,
+        "y": 680,
         "wires": []
     },
     {
@@ -1176,6 +1203,35 @@
         ]
     },
     {
+        "id": "3786b7d7240baead",
+        "type": "inject",
+        "z": "01a8f56dc3f304a5",
+        "name": "",
+        "props": [
+            {
+                "p": "payload"
+            },
+            {
+                "p": "topic",
+                "vt": "str"
+            }
+        ],
+        "repeat": "",
+        "crontab": "",
+        "once": true,
+        "onceDelay": "0",
+        "topic": "",
+        "payload": "",
+        "payloadType": "date",
+        "x": 90,
+        "y": 560,
+        "wires": [
+            [
+                "ddaa344562802356"
+            ]
+        ]
+    },
+    {
         "id": "e652c60bab29cc4d",
         "type": "mqtt in",
         "z": "241dd79a15bebea1",
@@ -1192,7 +1248,8 @@
         "y": 100,
         "wires": [
             [
-                "8ca2a9c310130f86"
+                "8ca2a9c310130f86",
+                "b98ecc5d93f04927"
             ]
         ]
     },
@@ -1258,7 +1315,10 @@
             [
                 "3c57f1e9c84aea94",
                 "7e0bfad37f777dbd",
-                "88efbab73fad2d34"
+                "88efbab73fad2d34",
+                "0539cef2395a1a29",
+                "66c7b3034b08d9b6",
+                "10890b4c7ab78c8a"
             ]
         ]
     },
@@ -1298,7 +1358,7 @@
         "label": "Locked/Unlocked",
         "tooltip": "",
         "group": "a6943afb2c79c690",
-        "order": 0,
+        "order": 1,
         "width": 0,
         "height": 0,
         "passthru": true,
@@ -1317,7 +1377,7 @@
         "animate": false,
         "className": "",
         "x": 130,
-        "y": 360,
+        "y": 520,
         "wires": [
             [
                 "6c83bbbd161bc844",
@@ -1340,7 +1400,7 @@
         "expiry": "",
         "broker": "732c6ba564cc905c",
         "x": 410,
-        "y": 560,
+        "y": 720,
         "wires": []
     },
     {
@@ -1366,7 +1426,7 @@
         "repair": false,
         "outputs": 2,
         "x": 330,
-        "y": 360,
+        "y": 520,
         "wires": [
             [
                 "d07177a0e31ba5c1"
@@ -1387,7 +1447,7 @@
         "priority": 1,
         "queryType": "push",
         "x": 790,
-        "y": 300,
+        "y": 460,
         "wires": []
     },
     {
@@ -1402,7 +1462,7 @@
         "finalize": "",
         "libs": [],
         "x": 560,
-        "y": 300,
+        "y": 460,
         "wires": [
             [
                 "a81ae6fecae843b8"
@@ -1421,7 +1481,7 @@
         "finalize": "",
         "libs": [],
         "x": 560,
-        "y": 420,
+        "y": 580,
         "wires": [
             [
                 "695c647c2b753ffc"
@@ -1439,7 +1499,7 @@
         "priority": 1,
         "queryType": "push",
         "x": 790,
-        "y": 420,
+        "y": 580,
         "wires": []
     },
     {
@@ -1469,7 +1529,7 @@
         "animate": false,
         "className": "",
         "x": 130,
-        "y": 560,
+        "y": 720,
         "wires": [
             [
                 "f3969748193e8670"
@@ -1491,8 +1551,230 @@
         "expiry": "",
         "broker": "732c6ba564cc905c",
         "x": 400,
-        "y": 480,
+        "y": 640,
         "wires": []
+    },
+    {
+        "id": "10890b4c7ab78c8a",
+        "type": "function",
+        "z": "241dd79a15bebea1",
+        "name": "Warn temperature",
+        "func": "let temp = msg.payload[0];\n//let warning_status = flow.get(\"warning_status\");\nif (temp > 70) {\n    msg.payload = {\n        \"type\": \"message\",\n        \"chatId\": \"-1001652896051\",\n        \"content\": `Temperature is TOO HIGH!\n        Going over ${temp} ℃!`\n    };\n    //flow.set(warning_status, 0);\n}\n\nreturn msg;",
+        "outputs": 1,
+        "noerr": 0,
+        "initialize": "",
+        "finalize": "",
+        "libs": [],
+        "x": 610,
+        "y": 220,
+        "wires": [
+            [
+                "30e2109c10ccd555"
+            ]
+        ]
+    },
+    {
+        "id": "30e2109c10ccd555",
+        "type": "telegram sender",
+        "z": "241dd79a15bebea1",
+        "name": "Send to Door2MART bot",
+        "bot": "305d27c48b016a55",
+        "haserroroutput": false,
+        "outputs": 1,
+        "x": 910,
+        "y": 220,
+        "wires": [
+            []
+        ]
+    },
+    {
+        "id": "66c7b3034b08d9b6",
+        "type": "function",
+        "z": "241dd79a15bebea1",
+        "name": "Warn stranger",
+        "func": "const low_hour = 22, high_hour = 5;\nconst pir_state = msg.payload[2];\n//let warning_status = flow.get(\"warning_status\");\nif (pir_state === '0') return msg;\n\nlet curr = new Date();\nlet curr_date = curr.toLocaleString().split(', ')[0];\n\nlet start = low_hour, end = high_hour;\nif (low_hour > 12) start = `${start - 12}:00:00 PM`;\nelse start += ':00:00 AM';\nstart = `${curr_date}, ${start}`\nif (high_hour > 12) end = `${end - 12}:00:00 PM`;\nelse end += ':00:00 AM';\nif (low_hour > high_hour) {\n    curr_date = new Date(curr.getTime());\n    curr_date.setDate(curr_date.getDate() + 1);\n    curr_date = curr_date.toLocaleString().split(', ')[0];\n}\nend = `${curr_date}, ${end}`;\n\nif (new Date(start).getTime() <= curr.getTime()\n    && curr.getTime() <= new Date(end).getTime()) {\n    msg.payload = {\n        \"type\": \"message\",\n        \"chatId\": \"-1001652896051\",\n        \"content\": `ALERT! Stranger's at the door!\n        Currently ${curr.toLocaleString()}!`\n    };\n    //flow.set(\"warning_status\", 0);\n}\n\nreturn msg;",
+        "outputs": 1,
+        "noerr": 0,
+        "initialize": "",
+        "finalize": "",
+        "libs": [],
+        "x": 600,
+        "y": 280,
+        "wires": [
+            [
+                "30e2109c10ccd555"
+            ]
+        ]
+    },
+    {
+        "id": "0764fec4896404fc",
+        "type": "e-mail",
+        "z": "241dd79a15bebea1",
+        "server": "smtp.gmail.com",
+        "port": "465",
+        "authtype": "BASIC",
+        "saslformat": true,
+        "token": "oauth2Response.access_token",
+        "secure": true,
+        "tls": true,
+        "name": "",
+        "dname": "Send to emails",
+        "x": 1060,
+        "y": 320,
+        "wires": []
+    },
+    {
+        "id": "5caf6bd5e9dc1cb9",
+        "type": "function",
+        "z": "241dd79a15bebea1",
+        "name": "Warn stranger (Email)",
+        "func": "const low_hour = 9, high_hour = 11;\nconst emails = flow.get(\"emails\");\nconst pir_state = msg.payload[2];\nlet warning_status = flow.get(\"warning_status\");\n\nif (pir_state === '0') return msg;\n\nlet curr = new Date();\nlet curr_date = curr.toLocaleString().split(', ')[0];\n\nlet start = low_hour, end = high_hour;\nif (low_hour > 12) start = `${start - 12}:00:00 PM`;\nelse start += ':00:00 AM';\nstart = `${curr_date}, ${start}`\nif (high_hour > 12) end = `${end - 12}:00:00 PM`;\nelse end += ':00:00 AM';\nif (low_hour > high_hour) {\n    curr_date = new Date(curr.getTime());\n    curr_date.setDate(curr_date.getDate() + 1);\n    curr_date = curr_date.toLocaleString().split(', ')[0];\n}\nend = `${curr_date}, ${end}`;\n\nif (warning_status == 1\n    && new Date(start).getTime() <= curr.getTime()\n    && curr.getTime() <= new Date(end).getTime()) {\n    msg = {\n        payload: `ALERT! Stranger's at the door!\n        Currently ${curr.toLocaleString()}!`,\n        topic: \"ALERT STRANGER!\",\n        to: emails\n    };\n    flow.set(\"warning_status\", 0);\n}\n\nreturn msg;",
+        "outputs": 1,
+        "noerr": 0,
+        "initialize": "",
+        "finalize": "",
+        "libs": [],
+        "x": 800,
+        "y": 380,
+        "wires": [
+            [
+                "0764fec4896404fc"
+            ]
+        ]
+    },
+    {
+        "id": "b98ecc5d93f04927",
+        "type": "firebase-get",
+        "z": "241dd79a15bebea1",
+        "name": "GET users",
+        "constraint": {},
+        "database": "a14529af611d0593",
+        "outputType": "auto",
+        "passThrough": false,
+        "path": "users",
+        "pathType": "str",
+        "useConstraint": false,
+        "x": 130,
+        "y": 180,
+        "wires": [
+            [
+                "dde412dbeffd9d06"
+            ]
+        ]
+    },
+    {
+        "id": "dde412dbeffd9d06",
+        "type": "function",
+        "z": "241dd79a15bebea1",
+        "name": "Filter emails",
+        "func": "var data = msg.payload;\nvar emails = [];\n\nfor (var propName in data) {\n    if (data.hasOwnProperty(propName)) {\n        var propValue = data[propName];\n        if (propValue.email.length > 0)\n            emails.push(propValue.email);\n    }\n}\n\nflow.set(\"emails\", emails.join(', '));\nmsg.payload = flow.get(\"emails\");\nreturn msg;",
+        "outputs": 1,
+        "noerr": 0,
+        "initialize": "",
+        "finalize": "",
+        "libs": [],
+        "x": 350,
+        "y": 180,
+        "wires": [
+            []
+        ]
+    },
+    {
+        "id": "e9e1efc2416d9909",
+        "type": "function",
+        "z": "241dd79a15bebea1",
+        "name": "Warn temperature (Email)",
+        "func": "let temp = msg.payload[0];\nlet emails = flow.get(\"emails\");\nlet warning_status = flow.get(\"warning_status\");\nif (temp > 70 && warning_status == 1) {\n    msg = {\n        payload: `Temperature is TOO HIGH!\n        Going over ${temp} ℃!`,\n        topic: \"ALERT TEMPERATURE!\",\n        to: emails\n    };\n    flow.set(\"warning_status\", 0);\n}\nreturn msg;",
+        "outputs": 1,
+        "noerr": 0,
+        "initialize": "",
+        "finalize": "",
+        "libs": [],
+        "x": 810,
+        "y": 320,
+        "wires": [
+            [
+                "0764fec4896404fc"
+            ]
+        ]
+    },
+    {
+        "id": "c59c91e63ddd90af",
+        "type": "function",
+        "z": "241dd79a15bebea1",
+        "name": "Set delay time",
+        "func": "flow.set(\"warning_status\", 1);",
+        "outputs": 1,
+        "noerr": 0,
+        "initialize": "",
+        "finalize": "",
+        "libs": [],
+        "x": 360,
+        "y": 260,
+        "wires": [
+            []
+        ]
+    },
+    {
+        "id": "0539cef2395a1a29",
+        "type": "switch",
+        "z": "241dd79a15bebea1",
+        "name": "",
+        "property": "warning_status",
+        "propertyType": "flow",
+        "rules": [
+            {
+                "t": "eq",
+                "v": "1",
+                "vt": "num"
+            },
+            {
+                "t": "eq",
+                "v": "0",
+                "vt": "str"
+            }
+        ],
+        "checkall": "true",
+        "repair": false,
+        "outputs": 2,
+        "x": 570,
+        "y": 360,
+        "wires": [
+            [
+                "e9e1efc2416d9909",
+                "5caf6bd5e9dc1cb9"
+            ],
+            []
+        ]
+    },
+    {
+        "id": "9a2325c67470e251",
+        "type": "inject",
+        "z": "241dd79a15bebea1",
+        "name": "",
+        "props": [
+            {
+                "p": "payload"
+            },
+            {
+                "p": "topic",
+                "vt": "str"
+            }
+        ],
+        "repeat": "60",
+        "crontab": "",
+        "once": true,
+        "onceDelay": "0",
+        "topic": "",
+        "payload": "",
+        "payloadType": "date",
+        "x": 130,
+        "y": 260,
+        "wires": [
+            [
+                "c59c91e63ddd90af"
+            ]
+        ]
     },
     {
         "id": "a05d9c72f1aeedba",
