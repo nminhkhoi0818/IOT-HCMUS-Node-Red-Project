@@ -158,31 +158,6 @@
         "hidden": false
     },
     {
-        "id": "43c4dff4.b9d28",
-        "type": "mqtt-broker",
-        "name": "HiveMQ Public Broker",
-        "broker": "broker.hivemq.com",
-        "port": "1883",
-        "clientid": "",
-        "usetls": false,
-        "protocolVersion": "3",
-        "keepalive": "60",
-        "cleansession": true,
-        "birthTopic": "",
-        "birthQos": "0",
-        "birthPayload": "",
-        "birthMsg": {},
-        "closeTopic": "",
-        "closeQos": "0",
-        "closePayload": "",
-        "closeMsg": {},
-        "willTopic": "",
-        "willQos": "0",
-        "willPayload": "",
-        "willMsg": {},
-        "sessionExpiry": ""
-    },
-    {
         "id": "18136a764050f740",
         "type": "ui_group",
         "name": "SignUp",
@@ -212,15 +187,6 @@
         "claims": {},
         "createUser": false,
         "useClaims": false
-    },
-    {
-        "id": "af47a8e89b7c507f",
-        "type": "ui_group",
-        "name": "Group 1",
-        "tab": "",
-        "order": 1,
-        "disp": true,
-        "width": 6
     },
     {
         "id": "eaba383d5f81daf1",
@@ -265,36 +231,6 @@
         "width": "6",
         "collapse": false,
         "className": ""
-    },
-    {
-        "id": "b82da486.9fc8d8",
-        "type": "ui_group",
-        "name": "Signin",
-        "tab": "",
-        "order": 1,
-        "disp": true,
-        "width": "6",
-        "collapse": false
-    },
-    {
-        "id": "c35e46a8.b04ce8",
-        "type": "ui_group",
-        "name": "SensorData",
-        "tab": "",
-        "order": 2,
-        "disp": true,
-        "width": "6",
-        "collapse": false
-    },
-    {
-        "id": "4de9506d.e7364",
-        "type": "ui_group",
-        "name": "History",
-        "tab": "",
-        "order": 3,
-        "disp": true,
-        "width": "6",
-        "collapse": false
     },
     {
         "id": "a2cde38270e59c21",
