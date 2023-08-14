@@ -399,92 +399,14 @@
         "className": ""
     },
     {
-        "id": "3456811b0d13c289",
-        "type": "ui_group",
-        "name": "Sensor_Data",
-        "tab": "",
-        "order": 6,
-        "disp": true,
-        "width": "6",
-        "collapse": false,
-        "className": ""
-    },
-    {
-        "id": "a2e2162537772365",
-        "type": "ui_group",
-        "name": "Infomation",
-        "tab": "",
-        "order": 4,
-        "disp": true,
-        "width": 8,
-        "collapse": false,
-        "className": ""
-    },
-    {
-        "id": "2129683c7714e650",
-        "type": "ui_group",
-        "name": "UserInfo",
-        "tab": "",
-        "order": 3,
-        "disp": true,
-        "width": "6",
-        "collapse": false,
-        "className": ""
-    },
-    {
-        "id": "65b99652f155ee74",
-        "type": "ui_group",
-        "name": "Control",
-        "tab": "",
-        "order": 5,
-        "disp": true,
-        "width": "6",
-        "collapse": false,
-        "className": ""
-    },
-    {
-        "id": "b52c3413a65722e5",
-        "type": "ui_group",
-        "name": "LogIn",
-        "tab": "",
-        "order": 2,
-        "disp": true,
-        "width": "6",
-        "collapse": false,
-        "className": ""
-    },
-    {
-        "id": "3ebb73ff54738fb0",
-        "type": "ui_group",
-        "name": "Data",
-        "tab": "",
-        "order": 1,
-        "disp": true,
-        "width": "6",
-        "collapse": false,
-        "className": ""
-    },
-    {
-        "id": "6f5770c8da91f6be",
-        "type": "ui_group",
-        "name": "StrangerAlert",
-        "tab": "",
-        "order": 7,
-        "disp": true,
-        "width": "6",
-        "collapse": false,
-        "className": ""
-    },
-    {
-        "id": "ae6d4969bfabe804",
+        "id": "43c4dff4.b9d28",
         "type": "mqtt-broker",
-        "name": "",
-        "broker": "test.mosquitto.org",
+        "name": "HiveMQ Public Broker",
+        "broker": "broker.hivemq.com",
         "port": "1883",
         "clientid": "",
-        "autoConnect": true,
         "usetls": false,
-        "protocolVersion": "4",
+        "protocolVersion": "3",
         "keepalive": "60",
         "cleansession": true,
         "birthTopic": "",
@@ -499,7 +421,6 @@
         "willQos": "0",
         "willPayload": "",
         "willMsg": {},
-        "userProps": "",
         "sessionExpiry": ""
     },
     {
@@ -543,15 +464,13 @@
         "useClaims": false
     },
     {
-        "id": "2a2f5469748d4a07",
+        "id": "af47a8e89b7c507f",
         "type": "ui_group",
-        "name": "Infomation",
-        "tab": "c1116b8569bb0947",
-        "order": 7,
+        "name": "Group 1",
+        "tab": "",
+        "order": 1,
         "disp": true,
-        "width": 8,
-        "collapse": false,
-        "className": ""
+        "width": 6
     },
     {
         "id": "a1bbb80ea881fd5b",
@@ -623,52 +542,32 @@
         "className": ""
     },
     {
-        "id": "6e6c101789a80854",
+        "id": "b82da486.9fc8d8",
         "type": "ui_group",
-        "name": "MainGroup",
+        "name": "Signin",
         "tab": "",
         "order": 1,
-        "disp": false,
-        "width": 10,
-        "collapse": false
-    },
-    {
-        "id": "9bda9381adf14bbb",
-        "type": "ui_group",
-        "name": "Masterswitches",
-        "tab": "",
-        "order": 6,
-        "disp": false,
+        "disp": true,
         "width": "6",
         "collapse": false
     },
     {
-        "id": "51e29e73bae90681",
+        "id": "c35e46a8.b04ce8",
         "type": "ui_group",
-        "name": "Condition",
+        "name": "SensorData",
         "tab": "",
-        "order": 5,
-        "disp": false,
-        "width": "4",
+        "order": 2,
+        "disp": true,
+        "width": "6",
         "collapse": false
     },
     {
-        "id": "a4d0e9d140fe280a",
+        "id": "4de9506d.e7364",
         "type": "ui_group",
-        "name": "Wind",
+        "name": "History",
         "tab": "",
-        "order": 4,
-        "disp": false,
-        "width": "4",
-        "collapse": false
-    },
-    {
-        "id": "dd4824c19b83ed87",
-        "type": "ui_group",
-        "name": "Luftfeuchtigkeit",
-        "tab": "",
-        "order": 4,
-        "disp": false,
+        "order": 3,
+        "disp": true,
         "width": "6",
         "collapse": false
     },
