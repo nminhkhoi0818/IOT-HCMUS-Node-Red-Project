@@ -104,11 +104,12 @@
             "8090d1b38fd1417d",
             "712ddd83c63dc9eb",
             "78790d49c4fda81d",
-            "94dbb4d4626b56f6"
+            "94dbb4d4626b56f6",
+            "170a30aaf24c0385"
         ],
         "x": 14,
         "y": 619,
-        "w": 1312,
+        "w": 1292,
         "h": 162
     },
     {
@@ -399,14 +400,92 @@
         "className": ""
     },
     {
-        "id": "43c4dff4.b9d28",
+        "id": "3456811b0d13c289",
+        "type": "ui_group",
+        "name": "Sensor_Data",
+        "tab": "",
+        "order": 6,
+        "disp": true,
+        "width": "6",
+        "collapse": false,
+        "className": ""
+    },
+    {
+        "id": "a2e2162537772365",
+        "type": "ui_group",
+        "name": "Infomation",
+        "tab": "",
+        "order": 4,
+        "disp": true,
+        "width": 8,
+        "collapse": false,
+        "className": ""
+    },
+    {
+        "id": "2129683c7714e650",
+        "type": "ui_group",
+        "name": "UserInfo",
+        "tab": "",
+        "order": 3,
+        "disp": true,
+        "width": "6",
+        "collapse": false,
+        "className": ""
+    },
+    {
+        "id": "65b99652f155ee74",
+        "type": "ui_group",
+        "name": "Control",
+        "tab": "",
+        "order": 5,
+        "disp": true,
+        "width": "6",
+        "collapse": false,
+        "className": ""
+    },
+    {
+        "id": "b52c3413a65722e5",
+        "type": "ui_group",
+        "name": "LogIn",
+        "tab": "",
+        "order": 2,
+        "disp": true,
+        "width": "6",
+        "collapse": false,
+        "className": ""
+    },
+    {
+        "id": "3ebb73ff54738fb0",
+        "type": "ui_group",
+        "name": "Data",
+        "tab": "",
+        "order": 1,
+        "disp": true,
+        "width": "6",
+        "collapse": false,
+        "className": ""
+    },
+    {
+        "id": "6f5770c8da91f6be",
+        "type": "ui_group",
+        "name": "StrangerAlert",
+        "tab": "",
+        "order": 7,
+        "disp": true,
+        "width": "6",
+        "collapse": false,
+        "className": ""
+    },
+    {
+        "id": "ae6d4969bfabe804",
         "type": "mqtt-broker",
-        "name": "HiveMQ Public Broker",
-        "broker": "broker.hivemq.com",
+        "name": "",
+        "broker": "test.mosquitto.org",
         "port": "1883",
         "clientid": "",
+        "autoConnect": true,
         "usetls": false,
-        "protocolVersion": "3",
+        "protocolVersion": "4",
         "keepalive": "60",
         "cleansession": true,
         "birthTopic": "",
@@ -421,6 +500,7 @@
         "willQos": "0",
         "willPayload": "",
         "willMsg": {},
+        "userProps": "",
         "sessionExpiry": ""
     },
     {
@@ -464,13 +544,15 @@
         "useClaims": false
     },
     {
-        "id": "af47a8e89b7c507f",
+        "id": "2a2f5469748d4a07",
         "type": "ui_group",
-        "name": "Group 1",
-        "tab": "",
-        "order": 1,
+        "name": "Door_Stats",
+        "tab": "c1116b8569bb0947",
+        "order": 7,
         "disp": true,
-        "width": 6
+        "width": "8",
+        "collapse": false,
+        "className": ""
     },
     {
         "id": "a1bbb80ea881fd5b",
@@ -542,32 +624,52 @@
         "className": ""
     },
     {
-        "id": "b82da486.9fc8d8",
+        "id": "6e6c101789a80854",
         "type": "ui_group",
-        "name": "Signin",
+        "name": "MainGroup",
         "tab": "",
         "order": 1,
-        "disp": true,
+        "disp": false,
+        "width": 10,
+        "collapse": false
+    },
+    {
+        "id": "9bda9381adf14bbb",
+        "type": "ui_group",
+        "name": "Masterswitches",
+        "tab": "",
+        "order": 6,
+        "disp": false,
         "width": "6",
         "collapse": false
     },
     {
-        "id": "c35e46a8.b04ce8",
+        "id": "51e29e73bae90681",
         "type": "ui_group",
-        "name": "SensorData",
+        "name": "Condition",
         "tab": "",
-        "order": 2,
-        "disp": true,
-        "width": "6",
+        "order": 5,
+        "disp": false,
+        "width": "4",
         "collapse": false
     },
     {
-        "id": "4de9506d.e7364",
+        "id": "a4d0e9d140fe280a",
         "type": "ui_group",
-        "name": "History",
+        "name": "Wind",
         "tab": "",
-        "order": 3,
-        "disp": true,
+        "order": 4,
+        "disp": false,
+        "width": "4",
+        "collapse": false
+    },
+    {
+        "id": "dd4824c19b83ed87",
+        "type": "ui_group",
+        "name": "Luftfeuchtigkeit",
+        "tab": "",
+        "order": 4,
+        "disp": false,
         "width": "6",
         "collapse": false
     },
@@ -618,79 +720,9 @@
         "tab": "82f9b9a833c0f77c",
         "order": 2,
         "disp": true,
-        "width": 11,
+        "width": 12,
         "collapse": false,
         "className": ""
-    },
-    {
-        "id": "65fb0d1d1dc1415f",
-        "type": "ui_spacer",
-        "z": "bb2de6a45f4ff3ce",
-        "name": "spacer",
-        "group": "fb585a70cdebba93",
-        "order": 1,
-        "width": 1,
-        "height": 1
-    },
-    {
-        "id": "1c30c14670d5cf87",
-        "type": "ui_spacer",
-        "z": "bb2de6a45f4ff3ce",
-        "name": "spacer",
-        "group": "fb585a70cdebba93",
-        "order": 3,
-        "width": 1,
-        "height": 1
-    },
-    {
-        "id": "3a7020b6de840483",
-        "type": "ui_spacer",
-        "z": "bb2de6a45f4ff3ce",
-        "name": "spacer",
-        "group": "fb585a70cdebba93",
-        "order": 4,
-        "width": 1,
-        "height": 1
-    },
-    {
-        "id": "366d7b1ec2ab3ea2",
-        "type": "ui_spacer",
-        "z": "bb2de6a45f4ff3ce",
-        "name": "spacer",
-        "group": "fb585a70cdebba93",
-        "order": 5,
-        "width": 1,
-        "height": 1
-    },
-    {
-        "id": "ba4ac29d7db2b5b9",
-        "type": "ui_spacer",
-        "z": "bb2de6a45f4ff3ce",
-        "name": "spacer",
-        "group": "fb585a70cdebba93",
-        "order": 6,
-        "width": 1,
-        "height": 1
-    },
-    {
-        "id": "f93bc42cd15aecd1",
-        "type": "ui_spacer",
-        "z": "bb2de6a45f4ff3ce",
-        "name": "spacer",
-        "group": "fb585a70cdebba93",
-        "order": 7,
-        "width": 1,
-        "height": 1
-    },
-    {
-        "id": "049d5aa98f4c286f",
-        "type": "ui_spacer",
-        "z": "bb2de6a45f4ff3ce",
-        "name": "spacer",
-        "group": "fb585a70cdebba93",
-        "order": 8,
-        "width": 1,
-        "height": 1
     },
     {
         "id": "5b1abd1c497d3d5d",
@@ -786,7 +818,7 @@
         "type": "function",
         "z": "6b2efe3cd5880a7d",
         "name": "Handle success login",
-        "func": "msg.payload = {\n    group : {\n        \"show\": [\"Dashboard_Control\", \"Dashboard_Infomation\", \"Dashboard_Sensor_Data\", \"Dashboard_UserInfo\", \"Data_Data\", \"Dashboard_StrangerAlert\"],\n        \"hide\": [\"Dashboard_SignUp\", \"Dashboard_LogIn\"]\n    }\n}\nreturn msg;",
+        "func": "msg.payload = {\n    group : {\n        \"show\": [\"Dashboard_Control\", \"Dashboard_Door_Stats\", \"Dashboard_Sensor_Data\", \"Dashboard_UserInfo\", \"Data_Data\", \"Dashboard_StrangerAlert\"],\n        \"hide\": [\"Dashboard_SignUp\", \"Dashboard_LogIn\"]\n    }\n}\nreturn msg;",
         "outputs": 1,
         "noerr": 0,
         "initialize": "",
@@ -1117,7 +1149,7 @@
         "z": "6b2efe3cd5880a7d",
         "g": "829e829b2ec2e9a3",
         "name": "To Sign Up",
-        "func": "msg.payload = {\n    group: {\n        \"hide\": [\"Dashboard_Control\", \"Dashboard_Infomation\", \"Dashboard_Sensor_Data\", \"Dashboard_UserInfo\", \"Dashboard_LogIn\", \"Dashboard_StrangerAlert\"],\n        \"show\": [\"Dashboard_SignUp\"]\n    }\n}\nreturn msg;",
+        "func": "msg.payload = {\n    group: {\n        \"hide\": [\"Dashboard_Control\", \"Dashboard_DoorStats\", \"Dashboard_Sensor_Data\", \"Dashboard_UserInfo\", \"Dashboard_LogIn\", \"Dashboard_StrangerAlert\"],\n        \"show\": [\"Dashboard_SignUp\"]\n    }\n}\nreturn msg;",
         "outputs": 1,
         "noerr": 0,
         "initialize": "",
@@ -1180,7 +1212,7 @@
         "z": "6b2efe3cd5880a7d",
         "g": "829e829b2ec2e9a3",
         "name": "To Login",
-        "func": "msg.payload = {\n    group: {\n        \"hide\": [\"Dashboard_Control\", \"Dashboard_Infomation\", \"Dashboard_Sensor_Data\", \"Dashboard_UserInfo\", \"Dashboard_SignUp\", \"Dashboard_StrangerAlert\"],\n        \"show\": [\"Dashboard_LogIn\"]\n    }\n}\nreturn msg;",
+        "func": "msg.payload = {\n    group: {\n        \"hide\": [\"Dashboard_Control\", \"Dashboard_Door_Stats\", \"Dashboard_Sensor_Data\", \"Dashboard_UserInfo\", \"Dashboard_SignUp\", \"Dashboard_StrangerAlert\"],\n        \"show\": [\"Dashboard_LogIn\"]\n    }\n}\nreturn msg;",
         "outputs": 1,
         "noerr": 0,
         "initialize": "",
@@ -1391,7 +1423,7 @@
         "z": "6b2efe3cd5880a7d",
         "g": "829e829b2ec2e9a3",
         "name": "To Login",
-        "func": "msg.payload = {\n    group: {\n        \"hide\": [\"UserInfo\", \"Dashboard_Control\", \"Dashboard_Infomation\", \"Dashboard_Sensor_Data\", \"Dashboard_UserInfo\", \"Dashboard_SignUp\", \"Data_Data\", \"Dashboard_StrangerAlert\"],\n        \"show\": [\"Dashboard_LogIn\"]\n    }\n}\nreturn msg;",
+        "func": "msg.payload = {\n    group: {\n        \"hide\": [\"UserInfo\", \"Dashboard_Control\", \"Dashboard_Door_Stats\", \"Dashboard_Sensor_Data\", \"Dashboard_UserInfo\", \"Dashboard_SignUp\", \"Data_Data\", \"Dashboard_StrangerAlert\"],\n        \"show\": [\"Dashboard_LogIn\"]\n    }\n}\nreturn msg;",
         "outputs": 1,
         "noerr": 0,
         "initialize": "",
@@ -1748,8 +1780,8 @@
         "name": "",
         "group": "56bc4e22f1f9b74c",
         "order": 2,
-        "width": 0,
-        "height": 0,
+        "width": 6,
+        "height": 5,
         "gtype": "wave",
         "title": "Humidity",
         "label": "units",
@@ -1800,8 +1832,8 @@
         "name": "",
         "group": "56bc4e22f1f9b74c",
         "order": 1,
-        "width": 0,
-        "height": 0,
+        "width": 6,
+        "height": 4,
         "gtype": "gage",
         "title": "Temperature",
         "label": "units",
@@ -2893,8 +2925,8 @@
         "name": "Door status table",
         "order": 4,
         "width": 8,
-        "height": 5,
-        "format": "<table>\n    <tr>\n        <th>Time</th>\n        <th>Action</th>\n        <th>User</th>\n    </tr>\n    <tr ng-repeat=\"stat in msg.payload | orderBy:'time':true\">\n        <td>{{stat.time}}</td>\n        <td>{{stat.status}}</td>\n        <td>{{stat.username}}</td>\n    </tr>\n</table>",
+        "height": 6,
+        "format": "<style>\n    th {\n        text-align: left;\n    }\n</style>\n\n<table>\n    <tr>\n        <th>Time</th>\n        <th>Action</th>\n        <th>User</th>\n    </tr>\n    <tr ng-repeat=\"stat in msg.payload | orderBy:'time':true\">\n        <td>{{stat.time}}</td>\n        <td>{{stat.status}}</td>\n        <td>{{stat.username}}</td>\n    </tr>\n</table>",
         "storeOutMessages": true,
         "fwdInMessages": true,
         "resendOnRefresh": true,
@@ -2965,7 +2997,7 @@
         "type": "function",
         "z": "bb2de6a45f4ff3ce",
         "name": "Filter display_statuses",
-        "func": "let ddate = flow.get(\"door_date\");\nlet actions = flow.get(\"door_actions\") || [\"close\", \"open\"];\nlet users = flow.get(\"door_users\") || flow.get(\"users\") || [];\nlet statuses = flow.get(\"door_statuses\");\n\nif (statuses && Array.isArray(statuses)) {\n    msg.payload = statuses.filter(stat =>\n        ddate === stat.time.split(',')[0]\n        && actions.includes(stat.status)\n        && users.includes(stat.username));\n}\nreturn msg;",
+        "func": "let ddate = flow.get(\"door_date\");\nlet actions = flow.get(\"door_actions\");\nlet users = flow.get(\"door_users\");\nif (!actions.length) actions = [\"close\", \"open\"];\nif (!users.length) users = flow.get(\"users\");\nlet statuses = flow.get(\"door_statuses\");\nmsg.payload = statuses.filter(stat =>\n    ddate == stat.time.split(',')[0]\n    && actions.includes(stat.status)\n    && users.includes(stat.username));\nreturn msg;\n",
         "outputs": 1,
         "noerr": 0,
         "initialize": "",
@@ -3265,34 +3297,14 @@
         ]
     },
     {
-        "id": "94dbb4d4626b56f6",
-        "type": "function",
-        "z": "bb2de6a45f4ff3ce",
-        "g": "e6acc00a395957a5",
-        "name": "Filter data",
-        "func": "var data = msg.payload;\nvar username_value = global.get(\"username_value\");\nvar dataLocks = []\nvar users = [];\n\nfor (var propName in data) {\n    if (data.hasOwnProperty(propName)) {\n        var propValue = data[propName];\n        if(propValue.username == username_value) {\n            dataLocks.push(propValue.time)\n        }\n    }\n}\n\nmsg.payload = dataLocks\nreturn msg;",
-        "outputs": 1,
-        "noerr": 0,
-        "initialize": "",
-        "finalize": "",
-        "libs": [],
-        "x": 360,
-        "y": 720,
-        "wires": [
-            [
-                "0a16da4a3a3c7405"
-            ]
-        ]
-    },
-    {
         "id": "ca6e5954d80f45b3",
         "type": "ui_chart",
         "z": "bb2de6a45f4ff3ce",
         "g": "e6acc00a395957a5",
         "name": "",
         "group": "fb585a70cdebba93",
-        "order": 2,
-        "width": 10,
+        "order": 1,
+        "width": 12,
         "height": 6,
         "label": "12-Month Lock/Unlock",
         "chartType": "bar",
@@ -3323,7 +3335,7 @@
         "outputs": 1,
         "useDifferentColor": false,
         "className": "",
-        "x": 1200,
+        "x": 1180,
         "y": 700,
         "wires": [
             []
@@ -3341,7 +3353,7 @@
         "initialize": "",
         "finalize": "",
         "libs": [],
-        "x": 580,
+        "x": 560,
         "y": 720,
         "wires": [
             [
@@ -3361,7 +3373,7 @@
         "arraySpltType": "len",
         "stream": false,
         "addname": "",
-        "x": 790,
+        "x": 770,
         "y": 720,
         "wires": [
             [
@@ -3396,7 +3408,7 @@
         "from": "",
         "to": "",
         "reg": false,
-        "x": 960,
+        "x": 940,
         "y": 680,
         "wires": [
             [
@@ -3411,8 +3423,8 @@
         "g": "e6acc00a395957a5",
         "name": "",
         "group": "fb585a70cdebba93",
-        "order": 9,
-        "width": 5,
+        "order": 2,
+        "width": 6,
         "height": 1,
         "passthru": false,
         "label": "Show Data",
@@ -3425,7 +3437,7 @@
         "payloadType": "str",
         "topic": "topic",
         "topicType": "msg",
-        "x": 110,
+        "x": 350,
         "y": 660,
         "wires": [
             [
@@ -3440,8 +3452,8 @@
         "g": "e6acc00a395957a5",
         "name": "",
         "group": "fb585a70cdebba93",
-        "order": 10,
-        "width": 5,
+        "order": 3,
+        "width": 6,
         "height": 1,
         "passthru": false,
         "label": "Clear Data",
@@ -3454,7 +3466,7 @@
         "payloadType": "json",
         "topic": "topic",
         "topicType": "msg",
-        "x": 950,
+        "x": 930,
         "y": 740,
         "wires": [
             [
@@ -3475,11 +3487,61 @@
         "path": "door_status",
         "pathType": "str",
         "useConstraint": false,
-        "x": 170,
+        "x": 130,
         "y": 720,
         "wires": [
             [
                 "94dbb4d4626b56f6"
+            ]
+        ]
+    },
+    {
+        "id": "94dbb4d4626b56f6",
+        "type": "function",
+        "z": "bb2de6a45f4ff3ce",
+        "g": "e6acc00a395957a5",
+        "name": "Filter data",
+        "func": "var data = msg.payload;\nvar username_value = global.get(\"username_value\");\nvar dataLocks = []\nvar users = [];\n\nfor (var propName in data) {\n    if (data.hasOwnProperty(propName)) {\n        var propValue = data[propName];\n        if(propValue.username == username_value) {\n            dataLocks.push(propValue.time)\n        }\n    }\n}\n\nmsg.payload = dataLocks\nreturn msg;",
+        "outputs": 1,
+        "noerr": 0,
+        "initialize": "",
+        "finalize": "",
+        "libs": [],
+        "x": 340,
+        "y": 720,
+        "wires": [
+            [
+                "0a16da4a3a3c7405"
+            ]
+        ]
+    },
+    {
+        "id": "170a30aaf24c0385",
+        "type": "inject",
+        "z": "bb2de6a45f4ff3ce",
+        "g": "e6acc00a395957a5",
+        "name": "",
+        "props": [
+            {
+                "p": "payload"
+            },
+            {
+                "p": "topic",
+                "vt": "str"
+            }
+        ],
+        "repeat": "",
+        "crontab": "",
+        "once": true,
+        "onceDelay": "0",
+        "topic": "",
+        "payload": "",
+        "payloadType": "date",
+        "x": 130,
+        "y": 660,
+        "wires": [
+            [
+                "78790d49c4fda81d"
             ]
         ]
     }
