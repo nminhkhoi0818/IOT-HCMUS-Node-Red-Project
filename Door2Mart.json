@@ -76,12 +76,13 @@
             "70ebb99537931aa3",
             "22a1b2bd045c6660",
             "d9ee0ba0e46e342d",
-            "63a6affc3dcff4e9"
+            "63a6affc3dcff4e9",
+            "4db0801cf4a7cca5"
         ],
-        "x": 34,
+        "x": 14,
         "y": 359,
-        "w": 752,
-        "h": 382
+        "w": 772,
+        "h": 402
     },
     {
         "id": "e6acc00a395957a5",
@@ -111,33 +112,6 @@
         "y": 619,
         "w": 1292,
         "h": 162
-    },
-    {
-        "id": "1b1bcdfabe777721",
-        "type": "mqtt-broker",
-        "name": "",
-        "broker": "test.mosquitto.org",
-        "port": "1883",
-        "clientid": "",
-        "autoConnect": true,
-        "usetls": false,
-        "protocolVersion": "4",
-        "keepalive": "60",
-        "cleansession": true,
-        "birthTopic": "",
-        "birthQos": "0",
-        "birthPayload": "",
-        "birthMsg": {},
-        "closeTopic": "",
-        "closeQos": "0",
-        "closePayload": "",
-        "closeMsg": {},
-        "willTopic": "",
-        "willQos": "0",
-        "willPayload": "",
-        "willMsg": {},
-        "userProps": "",
-        "sessionExpiry": ""
     },
     {
         "id": "cff180134c4d317c",
@@ -236,245 +210,6 @@
                 "py": 0
             }
         }
-    },
-    {
-        "id": "e5526a94fe43cfb2",
-        "type": "ui_group",
-        "name": "SignUp",
-        "tab": "",
-        "order": 1,
-        "disp": true,
-        "width": "6",
-        "collapse": false,
-        "className": ""
-    },
-    {
-        "id": "5656d4e6b8a179d0",
-        "type": "ui_group",
-        "name": "Sensor_Data",
-        "tab": "",
-        "order": 6,
-        "disp": true,
-        "width": "6",
-        "collapse": false,
-        "className": ""
-    },
-    {
-        "id": "99e0db7aa8d02f02",
-        "type": "ui_group",
-        "name": "Information",
-        "tab": "",
-        "order": 4,
-        "disp": true,
-        "width": "8",
-        "collapse": false,
-        "className": ""
-    },
-    {
-        "id": "7250621fe61f4418",
-        "type": "ui_group",
-        "name": "UserInfo",
-        "tab": "",
-        "order": 3,
-        "disp": true,
-        "width": "6",
-        "collapse": false,
-        "className": ""
-    },
-    {
-        "id": "4e8f1d672568b1d6",
-        "type": "ui_group",
-        "name": "Control",
-        "tab": "",
-        "order": 5,
-        "disp": true,
-        "width": "6",
-        "collapse": false,
-        "className": ""
-    },
-    {
-        "id": "f3dbd01f480dd5b0",
-        "type": "ui_group",
-        "name": "LogIn",
-        "tab": "",
-        "order": 2,
-        "disp": true,
-        "width": "6",
-        "collapse": false,
-        "className": ""
-    },
-    {
-        "id": "5c04de14c1cc7c3a",
-        "type": "ui_group",
-        "name": "Data",
-        "tab": "",
-        "order": 1,
-        "disp": true,
-        "width": "6",
-        "collapse": false,
-        "className": ""
-    },
-    {
-        "id": "b590304562214989",
-        "type": "ui_group",
-        "name": "StrangerAlert",
-        "tab": "",
-        "order": 7,
-        "disp": true,
-        "width": "6",
-        "collapse": false,
-        "className": ""
-    },
-    {
-        "id": "aaaaa59883f93bcf",
-        "type": "ui_group",
-        "name": "Group 1",
-        "tab": "",
-        "order": 1,
-        "disp": true,
-        "width": 6
-    },
-    {
-        "id": "ab39abef256cbc06",
-        "type": "ui_group",
-        "name": "Group 8",
-        "tab": "",
-        "order": 8,
-        "disp": true,
-        "width": 6
-    },
-    {
-        "id": "f9d3339f6e14e14d",
-        "type": "ui_group",
-        "name": "Group 2",
-        "tab": "",
-        "order": 2,
-        "disp": true,
-        "width": 6
-    },
-    {
-        "id": "c38b652c99769437",
-        "type": "ui_group",
-        "name": "Group 3",
-        "tab": "",
-        "order": 3,
-        "disp": true,
-        "width": 6
-    },
-    {
-        "id": "689a423f6ffe69ed",
-        "type": "mqtt-broker",
-        "name": "",
-        "broker": "test.mosquitto.org",
-        "port": "1883",
-        "clientid": "",
-        "autoConnect": true,
-        "usetls": false,
-        "protocolVersion": "4",
-        "keepalive": "60",
-        "cleansession": true,
-        "birthTopic": "",
-        "birthQos": "0",
-        "birthPayload": "",
-        "birthMsg": {},
-        "closeTopic": "",
-        "closeQos": "0",
-        "closePayload": "",
-        "closeMsg": {},
-        "willTopic": "",
-        "willQos": "0",
-        "willPayload": "",
-        "willMsg": {},
-        "userProps": "",
-        "sessionExpiry": ""
-    },
-    {
-        "id": "5e8d967eed27b471",
-        "type": "ui_group",
-        "name": "SignUp",
-        "tab": "",
-        "order": 1,
-        "disp": true,
-        "width": "6",
-        "collapse": false,
-        "className": ""
-    },
-    {
-        "id": "3456811b0d13c289",
-        "type": "ui_group",
-        "name": "Sensor_Data",
-        "tab": "",
-        "order": 6,
-        "disp": true,
-        "width": "6",
-        "collapse": false,
-        "className": ""
-    },
-    {
-        "id": "a2e2162537772365",
-        "type": "ui_group",
-        "name": "Infomation",
-        "tab": "",
-        "order": 4,
-        "disp": true,
-        "width": 8,
-        "collapse": false,
-        "className": ""
-    },
-    {
-        "id": "2129683c7714e650",
-        "type": "ui_group",
-        "name": "UserInfo",
-        "tab": "",
-        "order": 3,
-        "disp": true,
-        "width": "6",
-        "collapse": false,
-        "className": ""
-    },
-    {
-        "id": "65b99652f155ee74",
-        "type": "ui_group",
-        "name": "Control",
-        "tab": "",
-        "order": 5,
-        "disp": true,
-        "width": "6",
-        "collapse": false,
-        "className": ""
-    },
-    {
-        "id": "b52c3413a65722e5",
-        "type": "ui_group",
-        "name": "LogIn",
-        "tab": "",
-        "order": 2,
-        "disp": true,
-        "width": "6",
-        "collapse": false,
-        "className": ""
-    },
-    {
-        "id": "3ebb73ff54738fb0",
-        "type": "ui_group",
-        "name": "Data",
-        "tab": "",
-        "order": 1,
-        "disp": true,
-        "width": "6",
-        "collapse": false,
-        "className": ""
-    },
-    {
-        "id": "6f5770c8da91f6be",
-        "type": "ui_group",
-        "name": "StrangerAlert",
-        "tab": "",
-        "order": 7,
-        "disp": true,
-        "width": "6",
-        "collapse": false,
-        "className": ""
     },
     {
         "id": "ae6d4969bfabe804",
@@ -577,17 +312,6 @@
         "className": ""
     },
     {
-        "id": "c6119a2c87f26413",
-        "type": "ui_group",
-        "name": "UserInfo",
-        "tab": "",
-        "order": 1,
-        "disp": true,
-        "width": "6",
-        "collapse": false,
-        "className": ""
-    },
-    {
         "id": "3769e6e473aff07c",
         "type": "telegram bot",
         "botname": "Door2MART-bot",
@@ -622,76 +346,6 @@
         "width": "6",
         "collapse": false,
         "className": ""
-    },
-    {
-        "id": "6e6c101789a80854",
-        "type": "ui_group",
-        "name": "MainGroup",
-        "tab": "",
-        "order": 1,
-        "disp": false,
-        "width": 10,
-        "collapse": false
-    },
-    {
-        "id": "9bda9381adf14bbb",
-        "type": "ui_group",
-        "name": "Masterswitches",
-        "tab": "",
-        "order": 6,
-        "disp": false,
-        "width": "6",
-        "collapse": false
-    },
-    {
-        "id": "51e29e73bae90681",
-        "type": "ui_group",
-        "name": "Condition",
-        "tab": "",
-        "order": 5,
-        "disp": false,
-        "width": "4",
-        "collapse": false
-    },
-    {
-        "id": "a4d0e9d140fe280a",
-        "type": "ui_group",
-        "name": "Wind",
-        "tab": "",
-        "order": 4,
-        "disp": false,
-        "width": "4",
-        "collapse": false
-    },
-    {
-        "id": "dd4824c19b83ed87",
-        "type": "ui_group",
-        "name": "Luftfeuchtigkeit",
-        "tab": "",
-        "order": 4,
-        "disp": false,
-        "width": "6",
-        "collapse": false
-    },
-    {
-        "id": "34496bf3e69bf5cf",
-        "type": "ui_group",
-        "name": "Condition",
-        "tab": "",
-        "order": 2,
-        "disp": false,
-        "width": "2",
-        "collapse": false
-    },
-    {
-        "id": "8dd6e7370ca8c3ce",
-        "type": "ui_group",
-        "name": "Forecast",
-        "tab": "",
-        "order": 6,
-        "disp": false,
-        "width": "8",
-        "collapse": false
     },
     {
         "id": "82f9b9a833c0f77c",
@@ -846,7 +500,7 @@
         "targetType": "msg",
         "statusVal": "",
         "statusType": "auto",
-        "x": 1040,
+        "x": 1020,
         "y": 240,
         "wires": []
     },
@@ -1149,7 +803,7 @@
         "z": "6b2efe3cd5880a7d",
         "g": "829e829b2ec2e9a3",
         "name": "To Sign Up",
-        "func": "msg.payload = {\n    group: {\n        \"hide\": [\"Dashboard_Control\", \"Dashboard_DoorStats\", \"Dashboard_Sensor_Data\", \"Dashboard_UserInfo\", \"Dashboard_LogIn\", \"Dashboard_StrangerAlert\"],\n        \"show\": [\"Dashboard_SignUp\"]\n    }\n}\nreturn msg;",
+        "func": "msg.payload = {\n    group: {\n        \"hide\": [\"Dashboard_Control\", \"Dashboard_Door_Stats\", \"Dashboard_Sensor_Data\", \"Dashboard_UserInfo\", \"Dashboard_LogIn\", \"Dashboard_StrangerAlert\"],\n        \"show\": [\"Dashboard_SignUp\"]\n    }\n}\nreturn msg;",
         "outputs": 1,
         "noerr": 0,
         "initialize": "",
@@ -1735,6 +1389,38 @@
         ]
     },
     {
+        "id": "4db0801cf4a7cca5",
+        "type": "inject",
+        "z": "6b2efe3cd5880a7d",
+        "g": "829e829b2ec2e9a3",
+        "name": "",
+        "props": [
+            {
+                "p": "payload"
+            },
+            {
+                "p": "topic",
+                "vt": "str"
+            }
+        ],
+        "repeat": "",
+        "crontab": "",
+        "once": true,
+        "onceDelay": "0",
+        "topic": "",
+        "payload": "",
+        "payloadType": "date",
+        "x": 130,
+        "y": 720,
+        "wires": [
+            [
+                "ae5be908bda65283",
+                "70ebb99537931aa3",
+                "63a6affc3dcff4e9"
+            ]
+        ]
+    },
+    {
         "id": "8631124227ab63e4",
         "type": "mqtt in",
         "z": "69435a82deadf679",
@@ -1867,7 +1553,7 @@
         "passthru": true,
         "decouple": "false",
         "topic": "",
-        "topicType": "msg",
+        "topicType": "str",
         "style": "",
         "onvalue": "true",
         "onvalueType": "str",
@@ -2019,7 +1705,7 @@
         "passthru": true,
         "decouple": "false",
         "topic": "",
-        "topicType": "msg",
+        "topicType": "str",
         "style": "",
         "onvalue": "true",
         "onvalueType": "bool",
@@ -2836,7 +2522,7 @@
         "name": "Door_action",
         "label": "Action",
         "tooltip": "",
-        "place": "Action",
+        "place": "All",
         "group": "2a2f5469748d4a07",
         "order": 2,
         "width": 4,
@@ -2874,7 +2560,7 @@
         "name": "Door_user",
         "label": "User",
         "tooltip": "",
-        "place": "User",
+        "place": "All",
         "group": "2a2f5469748d4a07",
         "order": 3,
         "width": 4,
@@ -2997,7 +2683,7 @@
         "type": "function",
         "z": "bb2de6a45f4ff3ce",
         "name": "Filter display_statuses",
-        "func": "let ddate = flow.get(\"door_date\");\nlet actions = flow.get(\"door_actions\");\nlet users = flow.get(\"door_users\");\nif (!actions.length) actions = [\"close\", \"open\"];\nif (!users.length) users = flow.get(\"users\");\nlet statuses = flow.get(\"door_statuses\");\nmsg.payload = statuses.filter(stat =>\n    ddate == stat.time.split(',')[0]\n    && actions.includes(stat.status)\n    && users.includes(stat.username));\nreturn msg;\n",
+        "func": "let ddate = flow.get(\"door_date\");\nlet actions = flow.get(\"door_actions\");\nlet users = flow.get(\"door_users\");\nif (!actions.length) actions = [\"close\", \"open\"];\nif (!users.length) users = flow.get(\"users\");\nlet statuses = flow.get(\"door_statuses\");\nmsg.payload = statuses.filter(stat =>\n    ddate == stat.time.split(',')[0]\n    && actions.includes(stat.status)\n    && users.includes(stat.username));\nreturn msg;",
         "outputs": 1,
         "noerr": 0,
         "initialize": "",
